@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background{
+    width: 100% !important;
+    height: 100vh !important;
+    background-size: 100% !important;
+}
+
+.background img {
+    object-fit: cover !important;
+    /* object-position: center !important;
+    background-repeat: no-repeat !important; */
+}
+
+.background::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.carousel-item .thumbnail {
+    /* position: absolute !important; */
+    width: 450px;
+    height: 450px !important;
+    /* right: 10vw;
+    bottom: 50vh; */
+    /* top: -150; */
+}
+
+.carousel-item .kotakthumb {
+    top: 50vh !important;
+    right: 5vw !important;
+}
+
+.judulkegiatan h1, p, h3 {
+    color: white;
+}
+
+.judulkegiatan h1 {
+    font-size: 60pt;
+    font-weight: 600;
+}
+
+.judulkegiatan h3 {
+    font-size: 30pt;
+    font-weight: 600;
+}
+
+.judulkegiatan p {
+    /* background-color: sandybrown; */
+    font-size: 20pt;    
+    /* font-weight: 600; */
+}
+
+.judulkegiatan .kegiatan1 {
+    margin-top: 7vh;
+    margin-left: 3vw;
+}
+
+.judulkegiatan .kegiatan2 {
+    margin-top: 20vh;
+    margin-left: 3vw;
+}
+
+.carousel-item img {
+    height: 100% !important;
+}
+
+.content {
+    height: 100% !important;
+}
+
+.image {
+    background-color: aqua !important;
+    height: 100vh !important;
+}
+
+.judul {
+    background-color: salmon;
+    height: 100vh !important;
+}
+
+.areamarq {
+    background-color: #ffaa3c !important;
+    width: 100% !important;
+    padding-top: .5vh !important;
+    padding-bottom: .5vh !important;
+    top: 90vh !important;
+}
+
+.areamarq marquee {
+    color: white !important;
+    font-family: "Poppins";
+    /* font-weight: bold; */
+}
+
+
+
+
+
+
