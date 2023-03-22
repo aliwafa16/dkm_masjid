@@ -5,6 +5,6 @@ class Kegiatan extends CI_Controller
 {
 	public function index()
 	{
-		$this->load->view('kegiatan/kegiatan');
+		$this->load->view('kegiatan/kegiatan_masjid');
 	}
 }
