@@ -40,6 +40,12 @@
     right: 5vw !important;
 }
 
+.carousel-item .judulkegiatan1 {
+    top: 42vh !important;
+    left: 26vw !important;
+    color: white;
+}
+
 .judulkegiatan h1, p, h3 {
     color: white;
 }
@@ -66,9 +72,27 @@
 }
 
 .judulkegiatan .kegiatan2 {
-    margin-top: 20vh;
+    margin-top: 12vh !important;
     margin-left: 3vw;
 }
+
+.judulkegiatan .selasa1 {
+    margin-top: 6vh !important;
+    margin-left: 3vw;
+}
+
+.judulkegiatan .selasa1 h1 {
+    font-size: 40pt;
+}
+
+.judulkegiatan .selasa1 h3 {
+    font-size: 28pt;
+}
+
+.judulkegiatan .selasa1 p {
+    font-size: 16pt;
+}
+
 
 .carousel-item img {
     height: 100% !important;
@@ -93,12 +117,14 @@
     width: 100% !important;
     padding-top: .5vh !important;
     padding-bottom: .5vh !important;
-    top: 90vh !important;
+    top: 92vh !important;
 }
 
 .areamarq marquee {
-    color: white !important;
+    color: black !important;
     font-family: "Poppins";
+    font-weight: 600 !important;
+    font-size: 16pt;
     /* font-weight: bold; */
 }
 
