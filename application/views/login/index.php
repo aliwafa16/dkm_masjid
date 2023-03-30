@@ -13,6 +13,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel = "icon" href = "<?= base_url() ?>assets/img/kegiatanmasjid/Logo Al-Furqon-01.png" type = "image/x-icon">
     <title>Masjid Al-Furqon</title>
     <!-- CSS files -->
     <link href="<?= base_url('assets/admin/') ?>dist/css/tabler.min.css?1674944402" rel="stylesheet" />

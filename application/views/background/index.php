@@ -28,7 +28,7 @@
     <!-- Page body -->
     <div class="page-body">
         <div class="container-xl">
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="tableBg">
                 <thead>
                     <tr class="table-primary">
                         <th scope="col" class="table-primary">No</th>
@@ -105,3 +105,9 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+         $(document).ready(function(){
+             $('#tableBg').DataTable();
+         });
+    </script>

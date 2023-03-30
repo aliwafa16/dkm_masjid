@@ -56,6 +56,13 @@ class Penceramah extends CI_Controller
 
     public function hapus($id)
     {
+        $getData = $this->db->get_where('tbl_penceramah', ['id_penceramah' => $id])->row_array();
+
+        if($getData['foto'] == null){
+        }else{
+            unlink(FCPATH . 'assets/foto_penceramah/' . $getData['foto']);
+        }
+
         $this->db->where('id_penceramah', $id);
         $this->db->delete('tbl_penceramah');
         $this->session->set_flashdata('msg', 'Berhasil hapus data');
@@ -65,28 +72,49 @@ class Penceramah extends CI_Controller
     public function edit($id)
     {
 
-        $new_foto = $_FILES['foto']['name'];
-        $result = $this->db->get_where('tbl_penceramah', ['id_penceramah' => $id])->row_array();
-        $old_image = $result['foto'];
-
-        if ($new_foto != null) {
-            @unlink(FCPATH . './assets/foto_penceramah/' . $old_image);
-            $foto_penceramah = $this->_foto();
+        $this->form_validation->set_rules('nama_penceramah', 'Nama penceramah', 'required|trim', [
+            'required' => 'Nama penceramah harus diisi !!'
+        ]);
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim', [
+            'required' => 'Alamat penceramah harus diisi !!'
+        ]);
+        $this->form_validation->set_rules('no_telp', 'Nomor Telp', 'required|trim', [
+            'required' => 'Nomor Telepon harus diisi !!'
+        ]);
+        if ($this->form_validation->run() == false) {
+            $getData = $this->db->get('tbl_penceramah')->result_array();
+            $data = [
+                'title' => 'Penceramah',
+                'data' => $getData
+            ];
+            $this->load->view('template_admin/header', $data);
+            $this->load->view('penceramah/index', $data);
+            $this->load->view('template_admin/footer');
         } else {
-            $foto_penceramah = $old_image;
+            $new_foto = $_FILES['foto']['name'];
+            $result = $this->db->get_where('tbl_penceramah', ['id_penceramah' => $id])->row_array();
+            $old_image = $result['foto'];
+    
+            if ($new_foto != null) {
+                @unlink(FCPATH . './assets/foto_penceramah/' . $old_image);
+                $foto_penceramah = $this->_foto();
+            } else {
+                $foto_penceramah = $old_image;
+            }
+    
+            $data = [
+                'nama_penceramah' => $this->input->post('nama_penceramah'),
+                'alamat' => $this->input->post('alamat'),
+                'no_telp' => $this->input->post('no_telp'),
+                'foto' => $foto_penceramah
+            ];
+    
+            $this->db->where('id_penceramah', $id);
+            $this->db->update('tbl_penceramah', $data);
+            $this->session->set_flashdata('msg', 'Berhasil edit data');
+            redirect('Penceramah');
         }
 
-        $data = [
-            'nama_penceramah' => $this->input->post('nama_penceramah'),
-            'alamat' => $this->input->post('alamat'),
-            'no_telp' => $this->input->post('no_telp'),
-            'foto' => $foto_penceramah
-        ];
-
-        $this->db->where('id_penceramah', $id);
-        $this->db->update('tbl_penceramah', $data);
-        $this->session->set_flashdata('msg', 'Berhasil edit data');
-        redirect('Penceramah');
     }
 
 

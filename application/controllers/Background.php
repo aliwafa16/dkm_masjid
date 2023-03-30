@@ -36,6 +36,14 @@ class Background extends CI_Controller
 
     public function hapus($id)
     {
+
+        $getData = $this->db->get_where('tbl_background', ['id_background' => $id])->row_array();
+
+        if($getData['background'] == null){
+        }else{
+            unlink(FCPATH . 'assets/background/' . $getData['background']);
+        }
+
         $this->db->where('id_background', $id);
         $this->db->delete('tbl_background');
         $this->session->set_flashdata('msg', 'Berhasil hapus data');

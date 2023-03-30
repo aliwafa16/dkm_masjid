@@ -63,6 +63,29 @@ class Kajian extends CI_Controller
     public function edit($id)
     {
 
+
+        $this->form_validation->set_rules('nama_kajian', 'Nama Kajian', 'required|trim', [
+            'required' => 'Nama kajian harus diisi !!'
+        ]);
+        $this->form_validation->set_rules('mulai', 'Mulai', 'required|trim', [
+            'required' => 'Waktu mulai kajian harus diisi !!'
+        ]);
+        $this->form_validation->set_rules('selesai', 'Selesai', 'required|trim', [
+            'required' => 'Waktu selesai harus diisi !!'
+        ]);
+
+
+        if ($this->form_validation->run() == FALSE) {
+            $getData = $this->db->get('tbl_kajian')->result_array();
+            $data = [
+                'title' => 'Kajian',
+                'data' => $getData
+            ];
+            $this->load->view('template_admin/header', $data);
+            $this->load->view('kajian/index', $data);
+            $this->load->view('template_admin/footer');
+        } else {
+
         $data = [
             'nama_kajian' => $this->input->post('nama_kajian'),
             'mulai' => $this->input->post('mulai'),
@@ -75,4 +98,5 @@ class Kajian extends CI_Controller
         $this->session->set_flashdata('msg', 'Berhasil edit data');
         redirect('Kajian');
     }
+}
 }

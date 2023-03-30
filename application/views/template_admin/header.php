@@ -14,12 +14,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title><?= $title ?></title>
+    <link rel = "icon" href = "<?= base_url() ?>assets/img/kegiatanmasjid/Logo Al-Furqon-01.png" type = "image/x-icon">
     <!-- CSS files -->
     <link href="<?= base_url('assets/admin/') ?>dist/css/tabler.min.css?1674944402" rel="stylesheet" />
     <link href="<?= base_url('assets/admin/') ?>dist/css/tabler-flags.min.css?1674944402" rel="stylesheet" />
     <link href="<?= base_url('assets/admin/') ?>dist/css/tabler-payments.min.css?1674944402" rel="stylesheet" />
     <link href="<?= base_url('assets/admin/') ?>dist/css/tabler-vendors.min.css?1674944402" rel="stylesheet" />
     <link href="<?= base_url('assets/admin/') ?>dist/css/demo.min.css?1674944402" rel="stylesheet" />
+
+    <!-- datatable -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    <script src="<?= base_url('assets/admin/dist/js/jquery.min.js') ?>"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    
+    
     <style>
         @import url('https://rsms.me/inter/inter.css');
 
@@ -44,13 +53,14 @@
                 </button>
                 <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
                     <a href=".">
-                        <img src="<?= base_url('assets/admin/') ?>static/logo.svg" width="110" height="32" alt="Tabler" class="navbar-brand-image">
+                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/Logo Al-Furqon-01.png" width="110" height="32" alt="Masjid Al Furqon" class="navbar-brand-image">
+                    <span>Masjid Al Furqon</span>
                     </a>
                 </h1>
                 <div class="navbar-nav flex-row order-md-last">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
-                            <span class="avatar avatar-sm" style="background-image: url(<?= base_url('assets/admin/') ?>static/avatars/000m.jpg)"></span>
+                            <img src="<?= base_url() ?>assets/img/kegiatanmasjid/Logo Al-Furqon-01.png" width="110" height="32" alt="Masjid Al Furqon" class="navbar-brand-image">
                             <div class="d-none d-xl-block ps-2">
                                 <div><?= $this->session->userdata('username') ?></div>
                                 <div class="mt-1 small text-muted">Administator</div>
@@ -118,6 +128,9 @@
                                             </a>
                                             <a class="dropdown-item <?= $title == 'Rekening' ? 'active' : '' ?>" href="<?= base_url('Rekening') ?>">
                                                 Rekening
+                                            </a>
+                                            <a class="dropdown-item <?= $title == 'Kegiatan Rutin' ? 'active' : '' ?>" href="<?= base_url('Manajemenkegiatan') ?>">
+                                                Kegiatan Rutin
                                             </a>
                                         </div>
                                     </div>

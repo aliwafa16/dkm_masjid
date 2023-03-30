@@ -28,7 +28,7 @@
     <!-- Page body -->
     <div class="page-body">
         <div class="container-xl">
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="tableKajian">
                 <thead>
                     <tr class="table-primary">
                         <th scope="col" class="table-primary">No</th>
@@ -78,13 +78,13 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label for="mulai" class="form-label">Waktu mulai</label>
-                                        <input class="form-control" id="mulai" name="mulai"><?= $key['mulai'] ?></input>
+                                        <input type="time" class="form-control" id="mulai" name="mulai"><?= $key['mulai'] ?></input>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label for="selesai" class="form-label">Waktu selesai</label>
-                                        <input class="form-control" id="selesai" name="selesai"><?= $key['selesai'] ?></input>
+                                        <input type="time" class="form-control" id="selesai" name="selesai"><?= $key['selesai'] ?></input>
                                     </div>
                                 </div>
                             </div>
@@ -144,3 +144,9 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+         $(document).ready(function(){
+             $('#tableKajian').DataTable();
+         });
+    </script>
