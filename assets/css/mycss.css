@@ -1,143 +1,384 @@
 *{
+
     margin: 0;
+
     padding: 0;
+
     box-sizing: border-box;
+
 }
+
+.pembuka .judulpembuka h1 {
+    color: white !important;
+}
+
+
 
 .background{
+
     width: 100% !important;
+
     height: 100vh !important;
+
     background-size: 100% !important;
+
 }
+
+
 
 .background img {
+
     object-fit: cover !important;
+
     /* object-position: center !important;
+
     background-repeat: no-repeat !important; */
+
 }
+
+.qris img {
+    object-fit: cover !important;
+}
+
+
 
 .background::after{
+
     content: '';
+
     position: absolute;
+
     width: 100%;
+
     height: 100%;
+
     top: 0;
+
     left: 0;
+
     background-color: rgba(0, 0, 0, 0.45);
+
 }
+
+
 
 .carousel-item .thumbnail {
+
     /* position: absolute !important; */
+
     width: 450px;
+
     height: 450px !important;
+
     /* right: 10vw;
+
     bottom: 50vh; */
+
     /* top: -150; */
+
 }
+
+
 
 .carousel-item .kotakthumb {
+
     top: 50vh !important;
+
     right: 5vw !important;
+
 }
+
+
 
 .carousel-item .judulkegiatan1 {
+
     top: 42vh !important;
+
     left: 26vw !important;
+
     color: white;
+
 }
+
+
 
 .judulkegiatan h1, p, h3 {
+
     color: white;
+
 }
+
+
 
 .judulkegiatan h1 {
+
     font-size: 60pt;
+
     font-weight: 600;
+
 }
+
+
 
 .judulkegiatan h3 {
+
     font-size: 30pt;
+
     font-weight: 600;
+
 }
+
+
 
 .judulkegiatan p {
+
     /* background-color: sandybrown; */
+
     font-size: 20pt;    
+
     /* font-weight: 600; */
+
 }
 
+
+
 .judulkegiatan .kegiatan1 {
+
     margin-top: 7vh;
+
     margin-left: 3vw;
+
 }
+
+
+
 
 
 .judulkegiatan .kegiatan2 {
+
     margin-top: 12vh !important;
+
     margin-left: 3vw;
+
 }
+
+.judulkegiatan .qris {
+
+    margin-top: 5vh !important;
+
+    margin-left: 3vw;
+
+}
+
+.judulkegiatan .kegiatanrutin2 {
+
+    margin-top: 4vh !important;
+
+    margin-left: 3vw !important;
+
+}
+
+
 
 .judulkegiatan .ahad1 {
+
     margin-top: 7vh;
+
     margin-left: 3vw;
+
 }
+
+
 
 .judulkegiatan .ahad2 {
+
     margin-top: 16vh !important;
+
     margin-left: 3vw;
+
 }
+
+
 
 .judulkegiatan .selasa1 {
+
     margin-top: 6vh !important;
+
     margin-left: 3vw;
+
 }
+
+
 
 .judulkegiatan .selasa1 h1 {
+
     font-size: 40pt;
+
 }
+
+
 
 .judulkegiatan .selasa1 h3 {
+
     font-size: 28pt;
+
 }
 
+
+
 .judulkegiatan .selasa1 p {
+
     font-size: 16pt;
+
 }
+
+
+
 
 
 .carousel-item img {
+
     height: 100% !important;
+
 }
+
+
 
 .content {
+
     height: 100% !important;
+
 }
+
+
 
 .image {
+
     background-color: aqua !important;
+
     height: 100vh !important;
+
 }
+
+
 
 .judul {
+
     background-color: salmon;
+
     height: 100vh !important;
+
 }
+
+
 
 .areamarq {
+
     background-color: #ffaa3c !important;
+
     width: 100% !important;
+
     padding-top: .5vh !important;
+
     padding-bottom: .5vh !important;
+
     top: 92vh !important;
+
 }
 
+
+
 .areamarq marquee {
+
     color: black !important;
+
     font-family: "Poppins";
+
     font-weight: 600 !important;
+
     font-size: 16pt;
+
     /* font-weight: bold; */
+
 }
+
+.kegiatanrutin{
+
+    margin-top: 80px;
+
+}
+
+
+swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* background: #fff; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .autoplay-progress {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--swiper-theme-color);
+  }
+
+  .autoplay-progress svg {
+    --progress: 0;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    stroke-width: 4px;
+    stroke: var(--swiper-theme-color);
+    fill: none;
+    stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+    stroke-dasharray: 125.6;
+    transform: rotate(-90deg);
+  }
+
+
+
+/* .carousel-item .thu {
+
+    width: 500px;
+
+    height: 350px !important;
+
+    margin-top: -50px;
+
+} */
+
+
+
+
+
+
+
+
 
 
 
