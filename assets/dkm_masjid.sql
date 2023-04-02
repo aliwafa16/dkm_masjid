@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2023 at 04:57 PM
+-- Generation Time: Apr 02, 2023 at 07:28 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -50,6 +50,26 @@ CREATE TABLE `tbl_daily` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_foto_kegiatan`
+--
+
+CREATE TABLE `tbl_foto_kegiatan` (
+  `id_fotokegiatan` int(11) NOT NULL,
+  `foto_kegiatan` varchar(123) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_foto_kegiatan`
+--
+
+INSERT INTO `tbl_foto_kegiatan` (`id_fotokegiatan`, `foto_kegiatan`) VALUES
+(2, '6427fcbe1d855.jpg'),
+(3, '6427fcc746bd3.jpg'),
+(4, '64283811e27c4.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_hari`
 --
 
@@ -85,13 +105,6 @@ CREATE TABLE `tbl_kajian` (
   `keterangan_waktu` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `tbl_kajian`
---
-
-INSERT INTO `tbl_kajian` (`id_kajian`, `nama_kajian`, `mulai`, `selesai`, `keterangan_waktu`) VALUES
-(4, 'Ngaji', '09:26', '22:26', 'Bismillah');
-
 -- --------------------------------------------------------
 
 --
@@ -102,9 +115,17 @@ CREATE TABLE `tbl_kegiatan` (
   `id_kegiatan` int(11) NOT NULL,
   `judul` varchar(128) NOT NULL,
   `deskripsi` text NOT NULL,
-  `foto` varchar(120) NOT NULL,
   `id_rekening` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_kegiatan`
+--
+
+INSERT INTO `tbl_kegiatan` (`id_kegiatan`, `judul`, `deskripsi`, `id_rekening`) VALUES
+(6, 'Pengajian', 'Pengajian bersama', 3),
+(7, 'Kajian', 'Kajian Bersama', 4),
+(8, 'Belajar', 'Belajar bersama', 3);
 
 -- --------------------------------------------------------
 
@@ -118,6 +139,17 @@ CREATE TABLE `tbl_penceramah` (
   `alamat` varchar(255) NOT NULL,
   `foto` varchar(120) NOT NULL,
   `no_telp` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_qris`
+--
+
+CREATE TABLE `tbl_qris` (
+  `id_qris` int(11) NOT NULL,
+  `foto_qris` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -140,6 +172,27 @@ CREATE TABLE `tbl_rekening` (
 INSERT INTO `tbl_rekening` (`id_rekening`, `nama_bank`, `no_rek`, `keterangan`) VALUES
 (3, 'Mandiri', '12345', 'Rekening Masjid atas nama DKM'),
 (4, 'BSI', '2178', 'atas nama bsi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_set_kegiatan`
+--
+
+CREATE TABLE `tbl_set_kegiatan` (
+  `id_setkegiatan` int(11) NOT NULL,
+  `id_kegiatan` int(11) NOT NULL,
+  `id_fotokegiatan` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_set_kegiatan`
+--
+
+INSERT INTO `tbl_set_kegiatan` (`id_setkegiatan`, `id_kegiatan`, `id_fotokegiatan`) VALUES
+(22, 7, 3),
+(23, 6, 2),
+(25, 6, 4);
 
 -- --------------------------------------------------------
 
@@ -178,6 +231,12 @@ ALTER TABLE `tbl_daily`
   ADD PRIMARY KEY (`id_daily`);
 
 --
+-- Indexes for table `tbl_foto_kegiatan`
+--
+ALTER TABLE `tbl_foto_kegiatan`
+  ADD PRIMARY KEY (`id_fotokegiatan`);
+
+--
 -- Indexes for table `tbl_hari`
 --
 ALTER TABLE `tbl_hari`
@@ -202,10 +261,22 @@ ALTER TABLE `tbl_penceramah`
   ADD PRIMARY KEY (`id_penceramah`);
 
 --
+-- Indexes for table `tbl_qris`
+--
+ALTER TABLE `tbl_qris`
+  ADD PRIMARY KEY (`id_qris`);
+
+--
 -- Indexes for table `tbl_rekening`
 --
 ALTER TABLE `tbl_rekening`
   ADD PRIMARY KEY (`id_rekening`);
+
+--
+-- Indexes for table `tbl_set_kegiatan`
+--
+ALTER TABLE `tbl_set_kegiatan`
+  ADD PRIMARY KEY (`id_setkegiatan`);
 
 --
 -- Indexes for table `tbl_user`
@@ -221,13 +292,19 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_background`
 --
 ALTER TABLE `tbl_background`
-  MODIFY `id_background` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_background` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_daily`
 --
 ALTER TABLE `tbl_daily`
   MODIFY `id_daily` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_foto_kegiatan`
+--
+ALTER TABLE `tbl_foto_kegiatan`
+  MODIFY `id_fotokegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_hari`
@@ -245,7 +322,7 @@ ALTER TABLE `tbl_kajian`
 -- AUTO_INCREMENT for table `tbl_kegiatan`
 --
 ALTER TABLE `tbl_kegiatan`
-  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_penceramah`
@@ -254,10 +331,22 @@ ALTER TABLE `tbl_penceramah`
   MODIFY `id_penceramah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `tbl_qris`
+--
+ALTER TABLE `tbl_qris`
+  MODIFY `id_qris` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `tbl_rekening`
 --
 ALTER TABLE `tbl_rekening`
   MODIFY `id_rekening` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_set_kegiatan`
+--
+ALTER TABLE `tbl_set_kegiatan`
+  MODIFY `id_setkegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

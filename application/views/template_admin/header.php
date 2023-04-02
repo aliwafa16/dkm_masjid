@@ -52,7 +52,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-                    <a href=".">
+                    <a href="<?= base_url('dashboard')?>">
                     <img src="<?= base_url() ?>assets/img/kegiatanmasjid/Logo Al-Furqon-01.png" width="110" height="32" alt="Masjid Al Furqon" class="navbar-brand-image">
                     <span>Masjid Al Furqon</span>
                     </a>
@@ -94,7 +94,24 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item dropdown <?= $title != 'Dashboard' ? 'active' : '' ?>">
+                            <li class="nav-item <?= $title == 'Kegiatan' ? 'active' : '' ?>">
+                                <a class="nav-link" href="<?= base_url('Setkegiatan') ?>">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+                                            <path d="M12 12l8 -4.5" />
+                                            <path d="M12 12l0 9" />
+                                            <path d="M12 12l-8 -4.5" />
+                                            <path d="M16 5.25l-8 4.5" />
+                                        </svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Kegiatan
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown <?= $title == '' ? 'active' : '' ?>">
                                 <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <!-- Download SVG icon from http://tabler-icons.io/i/package -->
@@ -131,6 +148,12 @@
                                             </a>
                                             <a class="dropdown-item <?= $title == 'Kegiatan Rutin' ? 'active' : '' ?>" href="<?= base_url('Manajemenkegiatan') ?>">
                                                 Kegiatan Rutin
+                                            </a>
+                                            <a class="dropdown-item <?= $title == 'Foto Kegiatan' ? 'active' : '' ?>" href="<?= base_url('Fotokegiatan') ?>">
+                                                Foto Kegiatan
+                                            </a>
+                                            <a class="dropdown-item <?= $title == 'Qris' ? 'active' : '' ?>" href="<?= base_url('Qris') ?>">
+                                                Qris
                                             </a>
                                         </div>
                                     </div>

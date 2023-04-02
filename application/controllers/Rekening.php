@@ -68,7 +68,7 @@ class Rekening extends CI_Controller
             'required' => 'Nama bank harus diisi !!'
         ]);
         $this->form_validation->set_rules('no_rek', 'Nomor Rekening', 'required|trim', [
-            'required' => 'Nomor rekening harus diisi !!'
+            'required' => 'Nomor rekening harus dipilih !!'
         ]);
         $this->form_validation->set_rules('keterangan', 'Keterangan', 'required|trim', [
             'required' => 'keterangan harus diisi !!'
