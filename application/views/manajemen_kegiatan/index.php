@@ -36,7 +36,6 @@
                         <th scope="col" class="table-primary">No</th>
                         <th scope="col">Nama Kegiatan</th>
                         <th scope="col">Deskripsi Kegiatan</th>
-                        <th scope="col">Foto</th>
                         <th scope="col">Rekening</th>
                         <th scope="col">Aksi</th>
                     </tr>
@@ -48,7 +47,6 @@
                             <th scope="row"><?= $i ?></th>
                             <td><?= $key['judul'] ?></td>
                             <td><?= $key['deskripsi'] ?></td>
-                            <td><img src="<?= base_url('assets/kegiatan_rutin/') ?><?= $key['foto'] ?>" alt="foto" width="100px"></td>
                             <td><?= $key['nama_bank'] ?></td>
                             <td>
                                 <a href="<?= base_url('Manajemenkegiatan/hapus/') ?><?= $key['id_kegiatan'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ?')">Hapus</a>
@@ -98,12 +96,6 @@
                                     endforeach ?>
                                     </select>
                             </div>
-                            <img src="<?= base_url('assets/kegiatan_rutin/') ?><?= $key['foto'] ?>" alt="foto" width="100px">
-                            <div class="mb-3">
-                                <label for="foto" class="form-label">Foto</label>
-                                <input class="form-control" type="file" id="foto" name="foto">
-                            </div>
-                            
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -145,16 +137,12 @@
 
                             <label for="id_rekening" class="form-label">Rekening</label>
                             <select class="form-select form-control" aria-label="" name="id_rekening">
-                                    <option selected disabled value="0">Pilih Rekening</option>
+                                    <option selected disabled value="0" readonly>Pilih Rekening</option>
                                     <?php
                                     foreach ($rekening as $data) :  ?>
                                         <option value="<?= $data['id_rekening']; ?>"><?= $data['nama_bank']; ?></option>
                                     <?php endforeach ?>
                                 </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="foto" class="form-label">Foto</label>
-                            <input class="form-control" type="file" id="foto" name="foto">
                         </div>
                 </div>
                 <div class="modal-footer">

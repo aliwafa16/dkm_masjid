@@ -23,7 +23,7 @@ class Manajemenkegiatan extends CI_Controller
             'required' => 'Deskripsi kegiatan harus diisi !!'
         ]);
         $this->form_validation->set_rules('id_rekening', 'Rekening', 'required|trim', [
-            'required' => 'Rekenig harus dipilih !!'
+            'required' => 'Nomor rekening harus dipilih !!'
         ]);
 
         if ($this->form_validation->run() == FALSE) {
@@ -39,8 +39,7 @@ class Manajemenkegiatan extends CI_Controller
             $data = [
                 'judul' => $this->input->post('judul'),
                 'deskripsi' => $this->input->post('deskripsi'),
-                'id_rekening' => $this->input->post('id_rekening'),
-                'foto' => $this->_foto()
+                'id_rekening' => $this->input->post('id_rekening')
             ];
 
             $result = $this->db->insert('tbl_kegiatan', $data);
@@ -58,14 +57,6 @@ class Manajemenkegiatan extends CI_Controller
 
     public function hapus($id)
     {
-
-        $getData = $this->db->get_where('tbl_kegiatan', ['id_kegiatan' => $id])->row_array();
-
-            if($getData['foto'] == null){
-            }else{
-                unlink(FCPATH . 'assets/kegiatan_rutin/' . $getData['foto']);
-            }
-
         $this->db->where('id_kegiatan', $id);
         $this->db->delete('tbl_kegiatan');
         $this->session->set_flashdata('msg', 'Berhasil hapus data');
@@ -81,7 +72,7 @@ class Manajemenkegiatan extends CI_Controller
             'required' => 'Deskripsi kegiatan harus diisi !!'
         ]);
         $this->form_validation->set_rules('id_rekening', 'Rekening', 'required|trim', [
-            'required' => 'Rekenig harus dipilih !!'
+            'required' => 'Nomor rekening harus dipilih !!'
         ]);
 
         if ($this->form_validation->run() == FALSE) {
@@ -94,23 +85,10 @@ class Manajemenkegiatan extends CI_Controller
             $this->load->view('manajemen_kegiatan/index', $data);
             $this->load->view('template_admin/footer');
         }else{
-
-            $new_foto = $_FILES['foto']['name'];
-            $result = $this->db->get_where('tbl_kegiatan', ['id_kegiatan' => $id])->row_array();
-            $old_image = $result['foto'];
-
-            if ($new_foto != null) {
-                @unlink(FCPATH . './assets/kegiatan_rutin/' . $old_image);
-                $foto_kegiatan = $this->_foto();
-            } else {
-                $foto_kegiatan = $old_image;
-            }
-
             $data = [
                 'judul' => $this->input->post('judul'),
                 'deskripsi' => $this->input->post('deskripsi'),
-                'id_rekening' => $this->input->post('id_rekening'),
-                'foto' => $foto_kegiatan
+                'id_rekening' => $this->input->post('id_rekening')
             ];
 
             $this->db->where('id_kegiatan', $id);
@@ -118,22 +96,5 @@ class Manajemenkegiatan extends CI_Controller
             $this->session->set_flashdata('msg', 'Berhasil edit data');
             redirect('Manajemenkegiatan');
       }
-    }
-
-    private function _foto()
-    {
-        $config = [
-            'upload_path' => './assets/kegiatan_rutin',
-            'allowed_types' => 'jpg|png|jpeg',
-            'max_size' => 10048,
-            'file_name' => uniqid()
-        ];
-        $this->upload->initialize($config);
-        if (!$this->upload->do_upload('foto')) {
-            return 'default.png';
-        } else {
-            $foto = $this->upload->data('file_name');
-            return $foto;
-        }
     }
 }
