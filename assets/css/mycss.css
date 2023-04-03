@@ -60,9 +60,40 @@
 
 }
 
+.areamarq {
+
+    background-color: #ffaa3c !important;
+
+    width: 100% !important;
+
+    padding-top: .5vh !important;
+
+    padding-bottom: .5vh !important;
+
+    top: 92vh !important;
+    z-index: 9999 !important;
+
+}
 
 
-.carousel-item .thumbnail {
+
+.areamarq marquee {
+
+    color: black !important;
+
+    font-family: "Poppins";
+
+    font-weight: 600 !important;
+
+    font-size: 16pt;
+
+    /* font-weight: bold; */
+
+}
+
+
+
+.swiper-slide .thumbnail {
 
     /* position: absolute !important; */
 
@@ -80,7 +111,7 @@
 
 
 
-.carousel-item .kotakthumb {
+.swiper-slide .kotakthumb {
 
     top: 50vh !important;
 
@@ -90,7 +121,7 @@
 
 
 
-.carousel-item .judulkegiatan1 {
+.swiper-slide .judulkegiatan1 {
 
     top: 42vh !important;
 
@@ -272,36 +303,6 @@
 
 
 
-.areamarq {
-
-    background-color: #ffaa3c !important;
-
-    width: 100% !important;
-
-    padding-top: .5vh !important;
-
-    padding-bottom: .5vh !important;
-
-    top: 92vh !important;
-
-}
-
-
-
-.areamarq marquee {
-
-    color: black !important;
-
-    font-family: "Poppins";
-
-    font-weight: 600 !important;
-
-    font-size: 16pt;
-
-    /* font-weight: bold; */
-
-}
-
 .kegiatanrutin{
 
     margin-top: 80px;
@@ -358,6 +359,11 @@ swiper-container {
     stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
     stroke-dasharray: 125.6;
     transform: rotate(-90deg);
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100vh;
   }
 
 
