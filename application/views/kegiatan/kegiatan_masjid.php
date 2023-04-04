@@ -419,10 +419,16 @@
                         <swiper-container class="mySwiper ms-5" navigation="false" space-between="30"
                             centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
                                 <swiper-slide>
-                                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/santunan.jpg" class=" thumbnail rounded float-end ms-5">
+                                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/santunan/santunan.jpg" class=" thumbnail rounded float-end ms-5">
                                 </swiper-slide>
                                 <swiper-slide>
-                                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/santunan.jpg" class=" thumbnail rounded float-end ms-5">
+                                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/santunan/santunan_2.jpg" class=" thumbnail rounded float-end ms-5 border border-5" style="border-color:#ff9e2c !important;">
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/santunan/santunan_3.jpg" class=" thumbnail rounded float-end ms-5 border border-5" style="border-color:#ff9e2c !important;">
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/santunan/santunan_4.jpg" class=" thumbnail rounded float-end ms-5 border border-5" style="border-color:#ff9e2c !important;">
                                 </swiper-slide>
                         </swiper-container>
 
@@ -467,10 +473,16 @@
                     <swiper-container class="mySwiper ms-5" navigation="false" space-between="30"
                         centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
                             <swiper-slide>
-                            <img src="<?= base_url() ?>assets/img/kegiatanmasjid/wakaf_parkir.jpg" class=" thumbnail rounded float-end ms-5">
+                            <img src="<?= base_url() ?>assets/img/kegiatanmasjid/wakaf/wakaf_parkir.jpg" class=" thumbnail rounded float-end ms-5 border border-5" style="border-color:#ff9e2c !important;">
                             </swiper-slide>
                             <swiper-slide>
-                                <img src="<?= base_url() ?>assets/img/kegiatanmasjid/santunan.jpg" class=" thumbnail rounded float-end ms-5">
+                                <img src="<?= base_url() ?>assets/img/kegiatanmasjid/wakaf/parkir_1.jpg" class=" thumbnail rounded float-end ms-5 border border-5" style="border-color:#ff9e2c !important;">
+                            </swiper-slide>
+                            <swiper-slide>
+                                <img src="<?= base_url() ?>assets/img/kegiatanmasjid/wakaf/parkir_2.jpg" class=" thumbnail rounded float-end ms-5 border border-5" style="border-color:#ff9e2c !important;">
+                            </swiper-slide>
+                            <swiper-slide>
+                                <img src="<?= base_url() ?>assets/img/kegiatanmasjid/wakaf/parkir_3.jpg" class=" thumbnail rounded float-end ms-5 border border-5" style="border-color:#ff9e2c !important;">
                             </swiper-slide>
                     </swiper-container>
 
@@ -524,24 +536,37 @@
                 </div>
 
                 <swiper-container class="mySwiper ms-5 position-absolute top-50 start-50 translate-middle text-center" navigation="false" space-between="30" centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
-                <swiper-slide>
-                    <div class="container-fluid ">
-                        <div class="row text-center">
-                            <div class="col-4">
-                                <img src="<?= base_url() ?>assets/img/kegiatanmasjid/donor_darah.jpg" class=" thumbnail rounded" style="width: 350px !important; height: 350px !important;">
-                            </div>
-                            <div class="col-4">
-                                <img src="<?= base_url() ?>assets/img/kegiatanmasjid/donor_darah.jpg" class=" thumbnail rounded" style="width: 350px !important; height: 350px !important;">
-                            </div>
-                            <div class="col-4">
-                                <img src="<?= base_url() ?>assets/img/kegiatanmasjid/donor_darah.jpg" class=" thumbnail rounded" style="width: 350px !important; height: 350px !important;">
+                    <swiper-slide>
+                        <div class="container-fluid ">
+                            <div class="row text-center">
+                                <div class="col-4">
+                                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/donor_darah/donor_1.jpg" class=" thumbnail rounded border border-5" style="width: 350px !important; height: 350px !important; border-color:#ff9e2c !important;">
+                                </div>
+                                <div class="col-4">
+                                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/donor_darah/donor_2.jpg" class=" thumbnail rounded border border-5" style="width: 350px !important; height: 350px !important; border-color:#ff9e2c !important;">
+                                </div>
+                                <div class="col-4">
+                                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/donor_darah/donor_3.jpg" class=" thumbnail rounded border border-5" style="width: 350px !important; height: 350px !important; border-color:#ff9e2c !important;">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/santunan.jpg" class=" thumbnail rounded float-end ms-5">
-                </swiper-slide>
+                    </swiper-slide>
+                    <swiper-slide>
+                    <div class="container-fluid ">
+                            <div class="row text-center">
+                                <div class="col-4">
+                                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/donor_darah/donor_4.jpg" class=" thumbnail rounded border border-5" style="width: 350px !important; height: 350px !important; border-color:#ff9e2c !important;">
+                                </div>
+                                <div class="col-4">
+                                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/donor_darah/donor_3.jpg" class=" thumbnail rounded border border-5" style="width: 350px !important; height: 350px !important; border-color:#ff9e2c !important;">
+                                </div>
+                                <div class="col-4">
+                                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/donor_darah/donor_2.jpg" class=" thumbnail rounded border border-5" style="width: 350px !important; height: 350px !important; border-color:#ff9e2c !important;">
+                                </div>
+                            </div>
+                        </div>
+                    </swiper-slide>
+                    
                 </swiper-container>
             </div>
             <!-- Jadwal Sholat -->
@@ -627,7 +652,7 @@
             // Optional parameters
             // direction: 'vertical',
             autoplay:{
-                delay:10000,
+                delay:20000,
                 disableOnInteraction: false,
             },
             loop: true,
