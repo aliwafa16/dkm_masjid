@@ -97,7 +97,7 @@ img {
                             <label for="id_fotokegiatan">
                                 <div class="row">
                                 <?php foreach($getGambarKegiatan as $gk) : ?>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6" style="margin-bottom: 15px;">
                                             <input type="checkbox" id="id_fotokegiatan" name="id_fotokegiatan[]" value="<?= $gk['id_fotokegiatan']?>" />
                                             <img src="<?= base_url('assets/foto_kegiatan/')?><?= $gk['foto_kegiatan']?>">
                                         </div>

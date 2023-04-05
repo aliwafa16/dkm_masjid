@@ -41,7 +41,7 @@
                     <?php foreach ($data as $key) : ?>
                         <tr>
                             <th scope="row"><?= $i ?></th>
-                            <td><img src="<?= base_url('assets/qris/') ?><?= $key['foto_qris'] ?>" alt="qris" width="250px"></td>
+                            <td><img src="<?= base_url('assets/qris/') ?><?= $key['foto_qris'] ?>" alt="qris" width="200px"></td>
                             <td>
                                 <a href="<?= base_url('Qris/hapus/') ?><?= $key['id_qris'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ?')">Hapus</a>
                             </td>

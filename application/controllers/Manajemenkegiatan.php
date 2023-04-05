@@ -27,7 +27,7 @@ class Manajemenkegiatan extends CI_Controller
         ]);
 
         if ($this->form_validation->run() == FALSE) {
-            $getData = $this->db->query("SELECT * FROM tbl_kegiatan JOIN tbl_rekening ON tbl_rekening.id_rekening = tbl_kegiatan.id_rekening")->result_array();
+            $getData = $this->db->query("SELECT * FROM tbl_kegiatan JOIN tbl_rekening ON tbl_rekening.id_rekening = tbl_kegiatan.id_rekening JOIN tbl_qris ON tbl_qris.id_qris = tbl_kegiatan.id_qris")->result_array();
             $data = [
                 'title' => 'Kegiatan Rutin',
                 'data' => $getData
@@ -39,7 +39,8 @@ class Manajemenkegiatan extends CI_Controller
             $data = [
                 'judul' => $this->input->post('judul'),
                 'deskripsi' => $this->input->post('deskripsi'),
-                'id_rekening' => $this->input->post('id_rekening')
+                'id_rekening' => $this->input->post('id_rekening'),
+                'id_qris' => $this->input->post('id_qris')
             ];
 
             $result = $this->db->insert('tbl_kegiatan', $data);
@@ -61,40 +62,5 @@ class Manajemenkegiatan extends CI_Controller
         $this->db->delete('tbl_kegiatan');
         $this->session->set_flashdata('msg', 'Berhasil hapus data');
         redirect('Manajemenkegiatan');
-    }
-
-    public function edit($id)
-    {
-        $this->form_validation->set_rules('judul', 'Nama Kegiatan', 'required|trim', [
-            'required' => 'Nama kegiatan harus diisi !!'
-        ]);
-        $this->form_validation->set_rules('deskripsi', 'Deskripsi Kegiatan', 'required|trim', [
-            'required' => 'Deskripsi kegiatan harus diisi !!'
-        ]);
-        $this->form_validation->set_rules('id_rekening', 'Rekening', 'required|trim', [
-            'required' => 'Nomor rekening harus dipilih !!'
-        ]);
-
-        if ($this->form_validation->run() == FALSE) {
-            $getData = $this->db->query("SELECT * FROM tbl_kegiatan JOIN tbl_rekening ON tbl_rekening.id_rekening = tbl_kegiatan.id_rekening")->result_array();
-            $data = [
-                'title' => 'Kegiatan Rutin',
-                'data' => $getData
-            ];
-            $this->load->view('template_admin/header', $data);
-            $this->load->view('manajemen_kegiatan/index', $data);
-            $this->load->view('template_admin/footer');
-        }else{
-            $data = [
-                'judul' => $this->input->post('judul'),
-                'deskripsi' => $this->input->post('deskripsi'),
-                'id_rekening' => $this->input->post('id_rekening')
-            ];
-
-            $this->db->where('id_kegiatan', $id);
-            $this->db->update('tbl_kegiatan', $data);
-            $this->session->set_flashdata('msg', 'Berhasil edit data');
-            redirect('Manajemenkegiatan');
-      }
     }
 }

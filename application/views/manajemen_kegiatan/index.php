@@ -37,6 +37,7 @@
                         <th scope="col">Nama Kegiatan</th>
                         <th scope="col">Deskripsi Kegiatan</th>
                         <th scope="col">Rekening</th>
+                        <th scope="col">Qris</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -48,9 +49,9 @@
                             <td><?= $key['judul'] ?></td>
                             <td><?= $key['deskripsi'] ?></td>
                             <td><?= $key['nama_bank'] ?></td>
+                            <td><img src="<?= base_url('assets/qris/') ?><?= $key['foto_qris'] ?>" alt="foto" width="100px"></td>
                             <td>
                                 <a href="<?= base_url('Manajemenkegiatan/hapus/') ?><?= $key['id_kegiatan'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ?')">Hapus</a>
-                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal<?= $key['id_kegiatan'] ?>" type="button">Edit</button>
                             </td>
                         </tr>
                         <?php $i++; ?>
@@ -60,54 +61,6 @@
         </div>
     </div>
 
-    <!-- MOAL EDIT -->
-    <?php foreach ($data as $key) : ?>
-        <div class="modal fade" id="editModal<?= $key['id_kegiatan'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit data kegiatan rutin</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="<?= base_url('Manajemenkegiatan/edit/') ?><?= $key['id_kegiatan'] ?>" method="post" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label for="judul" class="form-label">Nama Kegiatan</label>
-                                <input type="text" class="form-control" id="judul" name="judul" value="<?= $key['judul'] ?>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="deskripsi" class="form-label">Deskripsi Kegiatan</label>
-                                <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="<?= $key['deskripsi'] ?>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="id_rekening" class="form-label">Rekening</label>
-                                    <select class="form-select form-control" aria-label="" name="id_rekening" id="id_rekening">
-                                    <?php
-                                    $getRekening = $this->db->get('tbl_rekening')->result_array();
-
-                                    foreach ($getRekening as $rk) :  
-                                        if ($key['id_rekening'] == $rk['id_rekening']) {
-                                            $select="selected";
-                                           }else{
-                                            $select="";
-                                           }
-
-                                           echo "<option value=".$rk['id_rekening']." $select>".$rk['nama_bank']."</option>";
-                                    endforeach ?>
-                                    </select>
-                            </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary">Edit</button>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
-
-    <!-- END MODAL EDIT -->
 
     <!-- MODAL TAMBAH -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -140,9 +93,29 @@
                                     <option selected disabled value="0" readonly>Pilih Rekening</option>
                                     <?php
                                     foreach ($rekening as $data) :  ?>
-                                        <option value="<?= $data['id_rekening']; ?>"><?= $data['nama_bank']; ?></option>
+                                        <option value="<?= $data['id_rekening']; ?>"><?= $data['nama_bank'];?> - <?= $data['no_rek']?></option>
                                     <?php endforeach ?>
                                 </select>
+                        </div>
+
+                        <div class="mb-3">
+
+                            <?php
+                                $getQris = $this->db->get('tbl_qris')->result_array();
+                            ?>
+
+                            <label for="foto" class="form-label">Foto Kegiatan</label>
+
+                            <label for="id_qris">
+                                <div class="row">
+                                <?php foreach($getQris as $gk) : ?>
+                                        <div class="col-md-6" style="margin-bottom: 15px; width:200px;">
+                                            <input type="radio" id="id_qris" name="id_qris" value="<?= $gk['id_qris']?>" />
+                                            <img src="<?= base_url('assets/qris/')?><?= $gk['foto_qris']?>">
+                                        </div>
+                                        <?php endforeach?>
+                                    </div>
+                            </label>
                         </div>
                 </div>
                 <div class="modal-footer">
