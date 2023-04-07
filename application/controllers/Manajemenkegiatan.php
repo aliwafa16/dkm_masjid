@@ -19,10 +19,10 @@ class Manajemenkegiatan extends CI_Controller
         $this->form_validation->set_rules('judul', 'Nama Kegiatan', 'required|trim', [
             'required' => 'Nama kegiatan harus diisi !!'
         ]);
-        $this->form_validation->set_rules('deskripsi', 'Deskripsi Kegiatan', 'required|trim', [
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi Kegiatan', 'trim', [
             'required' => 'Deskripsi kegiatan harus diisi !!'
         ]);
-        $this->form_validation->set_rules('id_rekening', 'Rekening', 'required|trim', [
+        $this->form_validation->set_rules('id_rekening', 'Rekening', 'trim', [
             'required' => 'Nomor rekening harus dipilih !!'
         ]);
 

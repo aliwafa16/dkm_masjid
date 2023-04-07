@@ -48,7 +48,7 @@
                             <th scope="row"><?= $i ?></th>
                             <td><?= $key['judul'] ?></td>
                             <td><?= $key['deskripsi'] ?></td>
-                            <td><?= $key['nama_bank'] ?></td>
+                            <td><?= $key['nama_bank'] ?> - <?= $key['no_rek'] ?></td>
                             <td><img src="<?= base_url('assets/qris/') ?><?= $key['foto_qris'] ?>" alt="foto" width="100px"></td>
                             <td>
                                 <a href="<?= base_url('Manajemenkegiatan/hapus/') ?><?= $key['id_kegiatan'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ?')">Hapus</a>
