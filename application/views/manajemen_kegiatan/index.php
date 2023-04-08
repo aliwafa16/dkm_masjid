@@ -48,11 +48,25 @@
                             <th scope="row"><?= $i ?></th>
                             <td><?= $key['judul'] ?></td>
                             <td><?= $key['deskripsi'] ?></td>
-                            <td><?= $key['nama_bank'] ?> - <?= $key['no_rek'] ?></td>
-                            <td><img src="<?= base_url('assets/qris/') ?><?= $key['foto_qris'] ?>" alt="foto" width="100px"></td>
-                            <td>
-                                <a href="<?= base_url('Manajemenkegiatan/hapus/') ?><?= $key['id_kegiatan'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ?')">Hapus</a>
-                            </td>
+                            
+                            
+                            <?php $get = $this->db->query("SELECT * FROM tbl_rekening as r JOIN tbl_kegiatan as k ON k.id_rekening = r.id_rekening JOIN tbl_qris as q ON q.id_qris = k.id_qris WHERE r.id_rekening = '$key[id_rekening]' AND q.id_qris='$key[id_qris]'")->row_array();?>
+
+                            <?php if($key['id_rekening'] != null || $key['id_qris'] != null) : ?>
+                                <td><?= $get['nama_bank']?> - <?=$get['no_rek']?></td>
+                                <td><img src="<?= base_url('assets/qris/') ?><?= $get['foto_qris'] ?>" alt="foto" width="100px"></td>
+                            <?php else:?>
+                                <td></td>
+                                <td></td>
+                            <?php endif;?>
+                            
+
+                             <!-- <?php foreach($get as $rq):?>
+                               
+                            <?php endforeach;?> -->
+                           
+                            <td><a href="<?= base_url('Manajemenkegiatan/hapus/') ?><?= $key['id_kegiatan'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ?')">Hapus</a></td>
+
                         </tr>
                         <?php $i++; ?>
                     <?php endforeach; ?>

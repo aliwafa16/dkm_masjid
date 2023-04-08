@@ -19,15 +19,10 @@ class Manajemenkegiatan extends CI_Controller
         $this->form_validation->set_rules('judul', 'Nama Kegiatan', 'required|trim', [
             'required' => 'Nama kegiatan harus diisi !!'
         ]);
-        $this->form_validation->set_rules('deskripsi', 'Deskripsi Kegiatan', 'trim', [
-            'required' => 'Deskripsi kegiatan harus diisi !!'
-        ]);
-        $this->form_validation->set_rules('id_rekening', 'Rekening', 'trim', [
-            'required' => 'Nomor rekening harus dipilih !!'
-        ]);
+        
 
         if ($this->form_validation->run() == FALSE) {
-            $getData = $this->db->query("SELECT * FROM tbl_kegiatan JOIN tbl_rekening ON tbl_rekening.id_rekening = tbl_kegiatan.id_rekening JOIN tbl_qris ON tbl_qris.id_qris = tbl_kegiatan.id_qris")->result_array();
+            $getData = $this->db->get('tbl_kegiatan')->result_array();
             $data = [
                 'title' => 'Kegiatan Rutin',
                 'data' => $getData
@@ -63,4 +58,5 @@ class Manajemenkegiatan extends CI_Controller
         $this->session->set_flashdata('msg', 'Berhasil hapus data');
         redirect('Manajemenkegiatan');
     }
+
 }
