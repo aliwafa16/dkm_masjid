@@ -569,7 +569,7 @@
             // Optional parameters
             // direction: 'vertical',
             autoplay: {
-                delay: 5000,
+                delay: 20000,
                 disableOnInteraction: false,
             },
             loop: true,
