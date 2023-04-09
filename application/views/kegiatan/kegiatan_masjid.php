@@ -79,7 +79,9 @@
                         </div>
 
                         <div class="col-6 kotakthumb position-absolute top-50 end-0 translate-middle-y">
-                            <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[0]['foto'] ?>" class=" thumbnail rounded float-end me-auto" alt="...">
+                            <?php if ($getData[0]['foto'] != 'default.png') { ?>
+                                <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[0]['foto'] ?>" class=" thumbnail rounded float-end me-auto" alt="...">
+                            <?php } ?>
                         </div>
 
                         <div class="col-6 d-flex judulkegiatan judulkegiatan1 position-absolute top-50 start-0 translate-middle">
@@ -106,12 +108,16 @@
                         <div class="col-6 kotakthumb position-absolute top-50 end-0 translate-middle-y">
 
                             <swiper-container class="mySwiper ms-5" navigation="false" space-between="30" centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
-                                <swiper-slide>
-                                    <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[0]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[1]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                </swiper-slide>
+                                <?php if ($getData[0]['foto'] != 'default.png') { ?>
+                                    <swiper-slide>
+                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[0]['foto'] ?>" class=" thumbnail rounded " alt="...">
+                                    </swiper-slide>
+                                <?php } ?>
+                                <?php if ($getData[1]['foto'] != 'default.png') { ?>
+                                    <swiper-slide>
+                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[1]['foto'] ?>" class=" thumbnail rounded " alt="...">
+                                    </swiper-slide>
+                                <?php } ?>
                             </swiper-container>
 
                         </div>
@@ -148,15 +154,21 @@
                         </div>
                         <div class="col-6 kotakthumb position-absolute top-50 end-0 translate-middle-y">
                             <swiper-container class="mySwiper ms-5" navigation="false" space-between="30" centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
-                                <swiper-slide>
-                                    <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[0]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[1]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[2]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                </swiper-slide>
+                                <?php if ($getData[0]['foto'] != 'default.png') { ?>
+                                    <swiper-slide>
+                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[0]['foto'] ?>" class=" thumbnail rounded " alt="...">
+                                    </swiper-slide>
+                                <?php } ?>
+                                <?php if ($getData[1]['foto'] != 'default.png') { ?>
+                                    <swiper-slide>
+                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[1]['foto'] ?>" class=" thumbnail rounded " alt="...">
+                                    </swiper-slide>
+                                <?php } ?>
+                                <?php if ($getData[2]['foto'] != 'default.png') { ?>
+                                    <swiper-slide>
+                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[2]['foto'] ?>" class=" thumbnail rounded " alt="...">
+                                    </swiper-slide>
+                                <?php } ?>
                             </swiper-container>
                         </div>
 
@@ -242,18 +254,26 @@
 
                             <h1 class="text-center lh-lg" style="color:white; font-size:45pt;"><?= $key['hari'] ?></h1>
                             <swiper-container class="mySwiper " navigation="false" space-between="30" centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
-                                <swiper-slide>
-                                    <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[0]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[1]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[2]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[3]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                </swiper-slide>
+                                <?php if ($getData[0]['foto'] != 'default.png') { ?>
+                                    <swiper-slide>
+                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[0]['foto'] ?>" class=" thumbnail rounded " alt="...">
+                                    </swiper-slide>
+                                <?php } ?>
+                                <?php if ($getData[1]['foto'] != 'default.png') { ?>
+                                    <swiper-slide>
+                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[1]['foto'] ?>" class=" thumbnail rounded " alt="...">
+                                    </swiper-slide>
+                                <?php } ?>
+                                <?php if ($getData[2]['foto'] != 'default.png') { ?>
+                                    <swiper-slide>
+                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[2]['foto'] ?>" class=" thumbnail rounded " alt="...">
+                                    </swiper-slide>
+                                <?php } ?>
+                                <?php if ($getData[3]['foto'] != 'default.png') { ?>
+                                    <swiper-slide>
+                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[3]['foto'] ?>" class=" thumbnail rounded " alt="...">
+                                    </swiper-slide>
+                                <?php } ?>
                             </swiper-container>
 
                         </div>
@@ -482,7 +502,7 @@
 
                     <h1 style="color: #fff;" class="mt-5">Jadwal Shalat</h1>
 
-                    <h5 style="color: #fff;">Hari/Tanggal : Ahad, 2 April 2023</h5>
+                    <h5 style="color: #fff;">Hari/Tanggal : <?= $tanggal ?></h5>
                     <h5 class="ps-3" style="color: #fff;">Lokasi : Masjid Al Furqon Pakuan Regency</h5>
 
                     <div class="container mt-5">
@@ -499,15 +519,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($sholat as $sh) : ?>
-                                            <tr>
-                                                <th scope="row"><?= $sh['shubuh'] ?></th>
-                                                <td><?= $sh['dzuhur'] ?></td>
-                                                <td><?= $sh['ashr'] ?></td>
-                                                <td><?= $sh['magrib'] ?></td>
-                                                <td><?= $sh['isya'] ?></td>
-                                            </tr>
-                                        <?php endforeach; ?>
+
+                                        <tr>
+                                            <th scope="row"><?= $sholat['subuh'] ?></th>
+                                            <td><?= $sholat['dzuhur'] ?></td>
+                                            <td><?= $sholat['ashar'] ?></td>
+                                            <td><?= $sholat['maghrib'] ?></td>
+                                            <td><?= $sholat['isya'] ?></td>
+                                        </tr>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -518,7 +538,9 @@
         </div>
 
         <div class="areamarq position-absolute top-100 start-50 translate-middle">
-            <marquee direction="left" style="margin-left:10vw !important">REKENING AL FURQON: (INFAQ) Bank Syariah Indonesia No Rek: 2021 2026 13 a.n Masjid Al Furqon | (SANTUNAN ANAK YATIM) Bank Syariah Indonesia No Rek: 2021 2026 35 | (WAKAF) Bank Syariah Indonesia No Rek: 2021 2026 46 </marquee>
+            <marquee direction="left" style="margin-left:10vw !important">REKENING AL FURQON: <?php foreach ($rekening as $key) {
+                                                                                                    echo $key['nama_bank'] . ' no.rek ' . $key['no_rek'] . ' ' . $key['keterangan'] . ' | ';
+                                                                                                } ?> </marquee>
         </div>
         <div class="position-absolute bottom-0 start-0" style="margin-left:8vw !important; z-index: 9999 !important;">
             <img src="<?= base_url() ?>assets/img/kegiatanmasjid/rounded_logo.png" class="mb-2" alt="" width="100">
@@ -547,7 +569,7 @@
             // Optional parameters
             // direction: 'vertical',
             autoplay: {
-                delay: 20000,
+                delay: 5000,
                 disableOnInteraction: false,
             },
             loop: true,

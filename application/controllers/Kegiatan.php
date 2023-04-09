@@ -11,7 +11,7 @@ class Kegiatan extends CI_Controller
 		$ch = curl_init();
 
 		// set url 
-		curl_setopt($ch, CURLOPT_URL, "https://raw.githubusercontent.com/lakuapik/jadwalsholatorg/master/adzan/bogor/" . date('Y') . "/" . date('d') . ".json");
+		curl_setopt($ch, CURLOPT_URL, "https://api.banghasan.com/sholat/format/json/jadwal/kota/700/tanggal/" . date('Y-m-d'));
 
 		// return the transfer as a string 
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -24,18 +24,121 @@ class Kegiatan extends CI_Controller
 
 
 		$datas = json_decode($output, true);
-		$a = array_filter($datas, function ($d) {
-			return $d['tanggal'] == date('Y-m-d');
-		});
+		$tanggal = $this->hari_ini() . ', ' . date('y') . ' ' . $this->bulan_ini() . ' ' . date('Y');
 
-		// var_dump($a);
-		// die;
+		$rekening = $this->db->get('tbl_rekening')->result_array();
 
 		$data = [
 			'hari' => $this->db->get('tbl_hari')->result_array(),
-			'sholat' => $a
+			'tanggal' => $tanggal,
+			'sholat' => $datas['jadwal']['data'],
+			'rekening' => $rekening
 		];
 
 		$this->load->view('kegiatan/kegiatan_masjid', $data);
+	}
+
+
+	function hari_ini()
+	{
+		$hari = date("D");
+
+		switch ($hari) {
+			case 'Sun':
+				$hari_ini = "Minggu";
+				break;
+
+			case 'Mon':
+				$hari_ini = "Senin";
+				break;
+
+			case 'Tue':
+				$hari_ini = "Selasa";
+				break;
+
+			case 'Wed':
+				$hari_ini = "Rabu";
+				break;
+
+			case 'Thu':
+				$hari_ini = "Kamis";
+				break;
+
+			case 'Fri':
+				$hari_ini = "Jumat";
+				break;
+
+			case 'Sat':
+				$hari_ini = "Sabtu";
+				break;
+
+			default:
+				$hari_ini = "Tidak di ketahui";
+				break;
+		}
+
+		return $hari_ini;
+	}
+
+
+	function bulan_ini()
+	{
+		$bulan = date("m");
+
+		switch ($bulan) {
+			case '01':
+				$hari_ini = "Januari";
+				break;
+
+			case '02':
+				$hari_ini = "Februari";
+				break;
+
+			case '03':
+				$hari_ini = "Maret";
+				break;
+
+			case '04':
+				$hari_ini = "April";
+				break;
+
+			case '05':
+				$hari_ini = "Mei";
+				break;
+
+			case '06':
+				$hari_ini = "Juni";
+				break;
+
+			case '07':
+				$hari_ini = "Juli";
+				break;
+
+			case '08':
+				$hari_ini = "Agustus";
+				break;
+
+			case '09':
+				$hari_ini = "September";
+				break;
+
+			case '10':
+				$hari_ini = "Oktober";
+				break;
+
+			case '11':
+				$hari_ini = "November";
+				break;
+
+			case '12':
+				$hari_ini = "Desember";
+				break;
+
+			default:
+				$hari_ini = "Tidak di ketahui";
+				break;
+		}
+
+		return $hari_ini;
 	}
 }
