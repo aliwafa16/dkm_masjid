@@ -69,7 +69,6 @@
                 $this->db->where('tbl_hari.id_hari', $key['id_hari']);
                 $getData = $this->db->get()->result_array();
                 $count = count($getData);
-
                 ?>
 
                 <?php if ($count == 1) : ?>
@@ -217,6 +216,96 @@
                         </div>
                     </div>
                 <?php elseif ($count == 4) : ?>
+                    <div class="swiper-slide">
+                        <div class="background">
+                            <img src="<?= base_url() ?>assets/background/<?= $getData[0]['background'] ?>" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="col-4 judulkegiatan mt-3 ps-3 position-absolute top-0 start-0">
+
+                            <div class="ahad1">
+
+                                <h3><?= $getData[0]['nama_kajian'] ?></h3>
+
+                                <p class="lh-1"><?= $getData[0]['keterangan_waktu'] . ' Pukul ' . $getData[0]['mulai'] . ' s.d ' . $getData[0]['selesai'] ?></p>4
+                                <div class="ustazah">
+
+                                    <p class="lh-1"><?= $getData[0]['nama_kajian'] ?></p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="ahad2">
+                                <h3><?= $getData[1]['nama_kajian'] ?></h3>
+
+                                <p class="lh-1"><?= $getData[1]['keterangan_waktu'] . ' Pukul ' . $getData[1]['mulai'] . ' s.d ' . $getData[1]['selesai'] ?></p>4
+                                <div class="ustazah">
+
+                                    <p class="lh-1"><?= $getData[1]['nama_kajian'] ?></p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-4 mt-3 position-absolute top-0 start-50 translate-middle-x">
+
+                            <h1 class="text-center lh-lg" style="color:white; font-size:45pt;"><?= $key['hari'] ?></h1>
+                            <swiper-container class="mySwiper " navigation="false" space-between="30" centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+                                <?php if ($getData[0]['foto'] != 'default.png') { ?>
+                                    <swiper-slide>
+                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[0]['foto'] ?>" class=" thumbnail rounded " alt="...">
+                                    </swiper-slide>
+                                <?php } ?>
+                                <?php if ($getData[1]['foto'] != 'default.png') { ?>
+                                    <swiper-slide>
+                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[1]['foto'] ?>" class=" thumbnail rounded " alt="...">
+                                    </swiper-slide>
+                                <?php } ?>
+                                <?php if ($getData[2]['foto'] != 'default.png') { ?>
+                                    <swiper-slide>
+                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[2]['foto'] ?>" class=" thumbnail rounded " alt="...">
+                                    </swiper-slide>
+                                <?php } ?>
+                                <?php if ($getData[3]['foto'] != 'default.png') { ?>
+                                    <swiper-slide>
+                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[3]['foto'] ?>" class=" thumbnail rounded " alt="...">
+                                    </swiper-slide>
+                                <?php } ?>
+                            </swiper-container>
+
+                        </div>
+
+                        <div class="col-4 judulkegiatan mt-3 ps-3 position-absolute top-0 end-0">
+
+                            <div class="ahad1">
+                                <h3><?= $getData[2]['nama_kajian'] ?></h3>
+
+                                <p class="lh-1"><?= $getData[2]['keterangan_waktu'] . ' Pukul ' . $getData[2]['mulai'] . ' s.d ' . $getData[2]['selesai'] ?></p>4
+                                <div class="ustazah">
+
+                                    <p class="lh-1"><?= $getData[2]['nama_kajian'] ?></p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="ahad2">
+                                <h3><?= $getData[3]['nama_kajian'] ?></h3>
+
+                                <p class="lh-1"><?= $getData[3]['keterangan_waktu'] . ' Pukul ' . $getData[3]['mulai'] . ' s.d ' . $getData[3]['selesai'] ?></p>4
+                                <div class="ustazah">
+
+                                    <p class="lh-1"><?= $getData[3]['nama_kajian'] ?></p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                <?php elseif ($count == 5) : ?>
                     <div class="swiper-slide">
                         <div class="background">
                             <img src="<?= base_url() ?>assets/background/<?= $getData[0]['background'] ?>" class="d-block w-100" alt="...">
