@@ -367,9 +367,9 @@
 
                     <div class="kegiatanrutin2">
 
-                        <p>Bank Syariah Indonesia atas nama Masjid Alfurqon</p>
+                        <span>Bank Syariah Indonesia atas nama Masjid Alfurqon</span>
 
-                        <div class="ustazah">
+                        <div class="norek">
 
                             <p>No Rekening : 2021202635</p>
 
@@ -421,9 +421,9 @@
 
                     <div class="kegiatanrutin2">
 
-                        <p>Bank Syariah Indonesia atas nama Masjid Alfurqon</p>
+                        <span>Bank Syariah Indonesia atas nama Masjid Alfurqon</span>
 
-                        <div class="ustazah">
+                        <div class="norek">
 
                             <p>No Rekening : 2021202646</p>
 
@@ -569,7 +569,7 @@
             // Optional parameters
             // direction: 'vertical',
             autoplay: {
-                delay: 20000,
+                delay: 5000,
                 disableOnInteraction: false,
             },
             loop: true,
