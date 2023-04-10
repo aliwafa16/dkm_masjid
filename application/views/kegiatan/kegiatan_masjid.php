@@ -521,7 +521,7 @@
                                     <tbody>
 
                                         <tr>
-                                            <th scope="row"><?= $sholat['subuh'] ?></th>
+                                            <td scope="row"><?= $sholat['subuh'] ?></td>
                                             <td><?= $sholat['dzuhur'] ?></td>
                                             <td><?= $sholat['ashar'] ?></td>
                                             <td><?= $sholat['maghrib'] ?></td>
