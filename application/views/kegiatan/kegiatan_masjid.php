@@ -448,15 +448,16 @@
 
                     <div class="kegiatan1">
 
-                        <h3>KEGIATAN ASMAF SANTUNAN ANAK YATIM</h3>
+                        <h3 class="lh-1"  style="color: #fff; font-family:'Poppins'">KEGIATAN ASMAF SANTUNAN ANAK YATIM</h3>
 
-                        <h5 style="color: #fff;">Santunan kepada 130 Anak Yatim</h5>
+                        <h4 class="lh-1"  style="color: #fff; font-family:'Poppins'">Santunan kepada 130 Anak Yatim</h4>
 
                     </div>
 
                     <div class="kegiatanrutin2">
 
-                        <span>Bank Syariah Indonesia atas nama Masjid Alfurqon</span>
+                        <span>Bank Syariah Indonesia</span>
+                        <span class="d-block">An. Masjid	Al	Furqon</span>
 
                         <div class="norek">
 
@@ -500,17 +501,18 @@
                 <div class="col-6 judulkegiatan position-absolute top-0 start-0">
                     <div class="kegiatan1">
 
-                        <h3>WAKAF PEMBANGUNAN AREA PARKIR DAN KELAS</h3>
+                        <h3  style="color: #fff; font-family:'Poppins';">WAKAF PEMBANGUNAN AREA PARKIR DAN KELAS</h3>
 
-                        <h5 style="color: #fff;">Dana yang dibutuhkan untuk pembangunan area parkir motor dan kelas sebesar Rp 815 juta.
+                        <h4 style="color: #fff; font-family:'Poppins';">Dana yang dibutuhkan untuk pembangunan area parkir motor dan kelas sebesar <strong>Rp 815 juta</strong>.
 
-                        </h5>
+                        </h4>
 
                     </div>
 
                     <div class="kegiatanrutin2">
 
-                        <span>Bank Syariah Indonesia atas nama Masjid Alfurqon</span>
+                        <span>Bank Syariah Indonesia</span>
+                        <span class="d-block">An. Masjid	Al	Furqon</span>
 
                         <div class="norek">
 
@@ -522,13 +524,123 @@
 
                     <div class="qris">
 
-                        <img src="<?= base_url() ?>assets/img/qris/Rek_Asmaf.jpg" class=" thumbnail rounded " style="width:250px !important; height: 250px !important;">
+                        <img src="<?= base_url() ?>assets/img/qris/Rek_Wakaf.jpg" class=" thumbnail rounded " style="width:250px !important; height: 250px !important;">
 
                     </div>
                 </div>
             </div>
-            <!-- Donor Darah -->
+
+            <!-- Zakat -->
             <div class="swiper-slide">
+                <div class="background">
+
+                    <img src="<?= base_url() ?>assets/img/bg_ramadhan2.jpg" class="d-block w-100" alt="...">
+
+                </div>
+
+                <div class="col-6 kotakthumb position-absolute top-50 end-0 translate-middle-y">
+
+                    <swiper-container class="mySwiper ms-5" navigation="false" space-between="30" centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+                        <swiper-slide>
+                            <img src="<?= base_url() ?>assets/img/kegiatanmasjid/zakat/zakat1.jpg" class=" thumbnail rounded float-end ms-5 border border-5" style="border-color:#ff9e2c !important;">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img src="<?= base_url() ?>assets/img/kegiatanmasjid/zakat/zakat2.jpg" class=" thumbnail rounded float-end ms-5 border border-5" style="border-color:#ff9e2c !important;">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img src="<?= base_url() ?>assets/img/kegiatanmasjid/zakat/zakat6.jpg" class=" thumbnail rounded float-end ms-5 border border-5" style="border-color:#ff9e2c !important;">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img src="<?= base_url() ?>assets/img/kegiatanmasjid/zakat/zakat4.jpg" class=" thumbnail rounded float-end ms-5 border border-5" style="border-color:#ff9e2c !important;">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img src="<?= base_url() ?>assets/img/kegiatanmasjid/zakat/zakat5.jpg" class=" thumbnail rounded float-end ms-5 border border-5" style="border-color:#ff9e2c !important;">
+                        </swiper-slide>
+                    </swiper-container>
+
+                </div>
+
+                <div class="col-6 judulkegiatan position-absolute top-0 start-0">
+                    <div class="kegiatan1">
+
+                        <h3  style="color: #fff; font-family:'Poppins';">Penyerahan	Zakat	1443	H</h3>
+
+                        <!-- <h4 style="color: #fff; font-family:'Poppins';">Dana yang dibutuhkan untuk pembangunan area parkir motor dan kelas sebesar <strong>Rp 815 juta</strong>. -->
+
+                        </h4>
+
+                    </div>
+
+                    <div class="kegiatanrutin2">
+
+                        <span>Bank Syariah Indonesia</span>
+                        <span class="d-block">An. Masjid	Al	Furqon</span>
+
+                        <div class="norek">
+
+                            <p>No Rekening : 2021202624</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="qris">
+
+                        <img src="<?= base_url() ?>assets/img/qris/Rek_ZIS.jpg" class=" thumbnail rounded " style="width:250px !important; height: 250px !important;">
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Infaq Sodaqoh -->
+            <div class="swiper-slide">
+                <div class="background">
+
+                    <img src="<?= base_url() ?>assets/img/bg_ramadhan2.jpg" class="d-block w-100" alt="...">
+
+                </div>
+
+                <div class="col-6 kotakthumb2 position-absolute top-50 end-0 translate-middle-y">
+
+                    <div class="qris">
+
+                        <img src="<?= base_url() ?>assets/img/qris/Rek_Operasional.jpg" class=" thumbnail rounded " style="width:350px !important; height: 350px !important;">
+
+                    </div>
+
+                </div>
+
+                <div class="col-6 judulkegiatan kotakthumb2 position-absolute top-50 start-0 translate-middle-y ">
+                    <div class="kegiatan1">
+
+                        <!-- <h3  style="color: #fff; font-family:'Poppins';">Penyerahan	Zakat	1443	H</h3> -->
+
+                        <h4 style="color: #fff; font-family:'Poppins Semibold';">
+                        Masjid	Al	Furqon	menerima	infaq,	sodaqoh	untuk	operasional	kegiatan	sehari-hari.
+                        Infaq	dan	Sodaqoh	bisa	di	kirim	ke	rekening	sbb	:
+                        </h4>
+
+                    </div>
+
+                    <div class="kegiatanrutin2">
+
+                        <span >Bank Syariah Indonesia</span>
+                        <span class="d-block">An. Masjid	Al	Furqon</span>
+
+                        <div class="norek">
+
+                            <p style="font-size:28pt; font-family:'Poppins Semibold' !important;">No Rekening : 2021202624</p>
+
+                        </div>
+
+                    </div>
+
+                    
+                </div>
+            </div>
+
+            <!-- Donor Darah -->
+            <!-- <div class="swiper-slide">
                 <div class="background">
 
                     <img src="<?= base_url() ?>assets/img/bg_ramadhan.jpg" class="d-block w-100" alt="...">
@@ -577,7 +689,7 @@
                     </swiper-slide>
 
                 </swiper-container>
-            </div>
+            </div> -->
             <!-- Jadwal Sholat -->
 
             <div class="swiper-slide">
@@ -589,15 +701,15 @@
 
                 <div class="container position-absolute top-0 start-50 translate-middle-x mt-5 m-auto text-center">
 
-                    <h1 style="color: #fff;" class="mt-5">Jadwal Shalat</h1>
+                    <h1 style="color: #fff; font-family:'Poppins Semibold'" class="mt-5 mb-3">Jadwal Shalat</h1>
 
-                    <h5 style="color: #fff;">Hari/Tanggal : <?= $tanggal ?></h5>
-                    <h5 class="ps-3" style="color: #fff;">Lokasi : Masjid Al Furqon Pakuan Regency</h5>
+                    <h5 style="color: #fff; font-family:'Poppins Semibold' !important; font-size: 16pt !important;">Hari/Tanggal : <?= $tanggal ?></h5>
+                    <h5 class="ps-3" style="color: #fff; font-family:'Poppins Semibold' !important; font-size: 18pt !important;">Lokasi : Masjid Al Furqon Pakuan Regency</h5>
 
                     <div class="container mt-5">
                         <div class="row text-center">
                             <div class="col-12">
-                                <table class="table" style="color: white !important;">
+                                <table class="table" style="color: white !important; font-family:'Poppins Semibold' !important; font-size: 20pt !important;">
                                     <thead>
                                         <tr>
                                             <th scope="col">Subuh</th>
@@ -658,7 +770,7 @@
             // Optional parameters
             // direction: 'vertical',
             autoplay: {
-                delay: 5000,
+                delay: 50000,
                 disableOnInteraction: false,
             },
             loop: true,

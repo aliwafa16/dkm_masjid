@@ -119,6 +119,14 @@
 
 }
 
+.swiper-slide .kotakthumb2 {
+
+    top: 45vh !important;
+
+    right: -12vw !important;
+
+}
+
 
 
 .swiper-slide .judulkegiatan1 {
@@ -175,7 +183,7 @@
 
 .judulkegiatan .kegiatan1 {
 
-    margin-top: 6vh;
+    margin-top: 3vh;
 
     margin-left: 3vw;
 
@@ -212,14 +220,14 @@
 .judulkegiatan .kegiatanrutin2 span {
 
     font-family: 'Poppins';
-    font-size: 16pt;
+    font-size: 19pt !important;
     color: white;
 
 }
 
 .norek p {
     font-family: 'Poppins';
-    font-size: 14pt;
+    font-size: 18pt;
 }
 
 
