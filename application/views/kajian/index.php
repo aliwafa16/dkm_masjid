@@ -48,7 +48,7 @@
                             <td><?= $key['keterangan_waktu'] ?></td>
                             <td>
                                 <a href="<?= base_url('Kajian/hapus/') ?><?= $key['id_kajian'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ?')">Hapus</a>
-                                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal<?= $key['id_kajian'] ?>" type="button">Edit</button>
+                                <!-- <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal<?= $key['id_kajian'] ?>" type="button">Edit</button> -->
                             </td>
                         </tr>
                         <?php $i++; ?>
@@ -72,7 +72,7 @@
                         <form action="<?= base_url('Kajian/edit/') ?><?= $key['id_kajian'] ?>" method="post" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="nama_kajian" class="form-label">Nama kajian</label>
-                                <input type="text" class="form-control" id="nama_kajian" name="nama_kajian" value="<?= $key['nama_kajian'] ?>">
+                                <!-- <input type="text" class="form-control" id="nama_kajian" name="nama_kajian" value="<?= $key['nama_kajian'] ?>"> -->
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -115,7 +115,7 @@
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="nama_kajian" class="form-label">Nama Kajian</label>
-                            <input type="text" class="form-control" id="nama_kajian" name="nama_kajian">
+                            <textarea name="nama_kajian" id="nama_kajian" class="form-control" rows="12" cols="50"></textarea>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -145,8 +145,13 @@
         </div>
     </div>
 
+    <script>
+        window.onload = function() {
+            CKEDITOR.replace('nama_kajian');
+        };
+    </script>
     <script type="text/javascript">
-         $(document).ready(function(){
-             $('#tableKajian').DataTable();
-         });
+        $(document).ready(function() {
+            $('#tableKajian').DataTable();
+        });
     </script>

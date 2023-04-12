@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title><?= $title ?></title>
-    <link rel = "icon" href = "<?= base_url() ?>assets/img/kegiatanmasjid/Logo Al-Furqon-01.png" type = "image/x-icon">
+    <link rel="icon" href="<?= base_url() ?>assets/img/kegiatanmasjid/Logo Al-Furqon-01.png" type= "image/x-icon">
     <!-- CSS files -->
     <link href="<?= base_url('assets/admin/') ?>dist/css/tabler.min.css?1674944402" rel="stylesheet" />
     <link href="<?= base_url('assets/admin/') ?>dist/css/tabler-flags.min.css?1674944402" rel="stylesheet" />
@@ -27,8 +27,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
     <script src="<?= base_url('assets/admin/dist/js/jquery.min.js') ?>"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-    
-    
+
+    <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
     <style>
         @import url('https://rsms.me/inter/inter.css');
 
@@ -52,9 +52,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-                    <a href="<?= base_url('dashboard')?>">
-                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/Logo Al-Furqon-01.png" width="110" height="32" alt="Masjid Al Furqon" class="navbar-brand-image">
-                    <span>Masjid Al Furqon</span>
+                    <a href="<?= base_url('dashboard') ?>">
+                        <img src="<?= base_url() ?>assets/img/kegiatanmasjid/Logo Al-Furqon-01.png" width="110" height="32" alt="Masjid Al Furqon" class="navbar-brand-image">
+                        <span>Masjid Al Furqon</span>
                     </a>
                 </h1>
                 <div class="navbar-nav flex-row order-md-last">
