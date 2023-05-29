@@ -15,13 +15,13 @@ class Setkegiatan extends CI_Controller
     public function index()
     {
 
-        
+
         $this->form_validation->set_rules('id_kegiatan', 'Nama Kegiatan', 'required|trim', [
             'required' => 'Nama Kegiatan harus dipilih !!'
         ]);
-        
+
         if ($this->form_validation->run() == false) {
-            $getData = $this->db->query("SELECT * FROM tbl_set_kegiatan JOIN tbl_kegiatan ON tbl_kegiatan.id_kegiatan = tbl_set_kegiatan.id_kegiatan JOIN tbl_foto_kegiatan ON tbl_foto_kegiatan.id_fotokegiatan = tbl_set_kegiatan.id_fotokegiatan")->result_array();
+            $getData = $this->db->get('tbl_kegiatan')->result_array();
             $data = [
                 'title' => 'Kegiatan',
                 'data' => $getData
@@ -34,11 +34,11 @@ class Setkegiatan extends CI_Controller
             $namaKegiatan = $this->input->post('id_kegiatan');
             $gambarKegiatan = $this->input->post('id_fotokegiatan');
 
-           if(!empty($gambarKegiatan)){
-            foreach($gambarKegiatan as $key){
-                $result = $this->db->query("INSERT INTO `tbl_set_kegiatan`(`id_kegiatan`, `id_fotokegiatan`)VALUE('".$namaKegiatan."', '".$key."')");
+            if (!empty($gambarKegiatan)) {
+                foreach ($gambarKegiatan as $key) {
+                    $result = $this->db->query("INSERT INTO `tbl_set_kegiatan`(`id_kegiatan`, `id_fotokegiatan`)VALUE('" . $namaKegiatan . "', '" . $key . "')");
+                }
             }
-             }
 
             if ($result > 0) {
                 $this->session->set_flashdata('msg', 'Berhasil tambah data');

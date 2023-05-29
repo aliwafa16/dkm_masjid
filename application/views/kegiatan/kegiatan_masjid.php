@@ -56,372 +56,53 @@
             </div>
             <!-- Senin -->
 
-            <?php foreach ($hari as $key) : ?>
-                <?php
 
-                $this->db->select('*');
-                $this->db->from('tbl_daily');
-                $this->db->join('tbl_hari', 'tbl_hari.id_hari = tbl_daily.id_hari', 'left');
-                $this->db->join('tbl_penceramah', 'tbl_penceramah.id_penceramah = tbl_daily.id_penceramah', 'left');
-                $this->db->join('tbl_kajian', 'tbl_kajian.id_kajian = tbl_daily.id_kajian', 'left');
-                $this->db->join('tbl_background', 'tbl_background.id_background = tbl_daily.id_background', 'left');
-                $this->db->order_by('tbl_hari.id_hari', 'ASC');
-                $this->db->where('tbl_hari.id_hari', $key['id_hari']);
-                $getData = $this->db->get()->result_array();
-                $count = count($getData);
-                ?>
-
-                <?php if ($count == 1) : ?>
-                    <div class="swiper-slide">
-                        <div class="background">
-                            <img src="<?= base_url() ?>assets/background/<?= $getData[0]['background'] ?>" class="d-block w-100" alt="...">
-                        </div>
-
-                        <div class="col-6 kotakthumb position-absolute top-50 end-0 translate-middle-y">
-                            <?php if ($getData[0]['foto'] != 'default.png') { ?>
-                                <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[0]['foto'] ?>" class=" thumbnail rounded float-end me-auto" alt="...">
-                            <?php } ?>
-                        </div>
-
-                        <div class="col-6 d-flex judulkegiatan judulkegiatan1 position-absolute top-50 start-0 translate-middle">
-
-                            <div class="kegiatan1">
-
-                                <h1><?= $key['hari'] ?></h1>
-
-                                <h3><?= $getData[0]['nama_kajian'] ?></h3>
-                                <p class="lh-1"><?= $getData[0]['keterangan_waktu'] . ' Pukul ' . $getData[0]['mulai'] . ' s.d ' . $getData[0]['selesai'] ?></p>
-                                <div class="ustazah">
-                                    <p class="lh-1"><?= $getData[0]['nama_penceramah'] ?></p>
-                                </div>
-
-                            </div>
-
-                        </div>
+            <!-- Start loop kegiatan -->
+            <?php foreach ($kegiatan as $kg) : ?>
+                <div class="swiper-slide">
+                    <div class="background">
+                        <img src="<?= base_url() ?>assets/img/bg_ramadhan.jpg" class="d-block w-100" alt="...">
                     </div>
-                <?php elseif ($count == 2) : ?>
-                    <div class="swiper-slide">
-                        <div class="background">
-                            <img src="<?= base_url() ?>assets/background/<?= $getData[0]['background'] ?>" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="col-6 kotakthumb position-absolute top-50 end-0 translate-middle-y">
+                    <div class="col-6 kotakthumb position-absolute top-50 end-0 translate-middle-y">
+                        <swiper-container class="mySwiper ms-5" navigation="false" space-between="30" centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+                            <?php $foto = $this->db->get_where('tbl_foto_kegiatan', ['kegiatan_id' => $kg['id_kegiatan']])->result_array() ?>
 
-                            <swiper-container class="mySwiper ms-5" navigation="false" space-between="30" centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
-                                <?php if ($getData[0]['foto'] != 'default.png') { ?>
-                                    <swiper-slide>
-                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[0]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                    </swiper-slide>
-                                <?php } ?>
-                                <?php if ($getData[1]['foto'] != 'default.png') { ?>
-                                    <swiper-slide>
-                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[1]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                    </swiper-slide>
-                                <?php } ?>
-                            </swiper-container>
+                            <?php foreach ($foto as $ft) : ?>
+                                <swiper-slide>
+                                    <img src="<?= base_url() ?>/assets/foto_kegiatan/<?= $ft['foto_kegiatan'] ?>" class=" thumbnail rounded float-end ms-5">
+                                </swiper-slide>
+                            <?php endforeach; ?>
+                        </swiper-container>
 
-                        </div>
-
-                        <div class="col-6 judulkegiatan position-absolute top-0 start-0">
-
-                            <div class="kegiatan1">
-
-                                <h1><?= $key['hari'] ?></h1>
-
-                                <h3><?= $getData[0]['nama_kajian'] ?></h3>
-                                <p class="lh-1"><?= $getData[0]['keterangan_waktu'] . ' Pukul ' . $getData[0]['mulai'] . ' s.d ' . $getData[0]['selesai'] ?></p>
-
-                                <p class="lh-1"><?= $getData[0]['nama_penceramah'] ?></p>
-
-                            </div>
-
-                            <div class="kegiatan2">
-
-                                <h3><?= $getData[1]['nama_kajian'] ?></h3>
-                                <p class="lh-1"><?= $getData[1]['keterangan_waktu'] . ' Pukul ' . $getData[1]['mulai'] . ' s.d ' . $getData[1]['selesai'] ?></p>
-                                <div class="ustazah">
-                                    <p class="lh-1"><?= $getData[1]['nama_penceramah'] ?></p>
-                                </div>
-
-                            </div>
-
-                        </div>
                     </div>
-                <?php elseif ($count == 3) : ?>
-                    <div class="swiper-slide">
-                        <div class="background">
-                            <img src="<?= base_url() ?>assets/background/<?= $getData[0]['background'] ?>" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="col-6 kotakthumb position-absolute top-50 end-0 translate-middle-y">
-                            <swiper-container class="mySwiper ms-5" navigation="false" space-between="30" centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
-                                <?php if ($getData[0]['foto'] != 'default.png') { ?>
-                                    <swiper-slide>
-                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[0]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                    </swiper-slide>
-                                <?php } ?>
-                                <?php if ($getData[1]['foto'] != 'default.png') { ?>
-                                    <swiper-slide>
-                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[1]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                    </swiper-slide>
-                                <?php } ?>
-                                <?php if ($getData[2]['foto'] != 'default.png') { ?>
-                                    <swiper-slide>
-                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[2]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                    </swiper-slide>
-                                <?php } ?>
-                            </swiper-container>
+
+                    <div class="col-6 judulkegiatan position-absolute top-0 start-0">
+
+                        <div class="kegiatan1">
+                            <h3 class="lh-1" style="color: #fff; font-family:'Poppins'"><?= $kg['judul'] ?></h3>
                         </div>
 
-                        <div class="col-6 judulkegiatan position-absolute top-0 start-0">
+                        <div class="kegiatanrutin2">
 
-                            <div class="selasa1">
+                            <span><?= $kg['nama_bank'] ?></span>
+                            <span class="d-block"><?= $kg['keterangan'] ?></span>
 
-                                <h1><?= $key['hari'] ?></h1>
+                            <div class="norek">
 
-                                <h3><?= $getData[0]['nama_kajian'] ?></h3>
-                                <p class="lh-1"><?= $getData[0]['keterangan_waktu'] . ' Pukul ' . $getData[0]['mulai'] . ' s.d ' . $getData[0]['selesai'] ?></p>
-                                <div class="ustazah">
-                                    <p class="lh-1"><?= $getData[0]['nama_penceramah'] ?></p>
-                                </div>
+                                <p>No Rekening : <?= $kg['no_rek'] ?></p>
 
                             </div>
-
-                            <div class="selasa1">
-
-                                <h3><?= $getData[1]['nama_kajian'] ?></h3>
-
-                                <p class="lh-1"><?= $getData[1]['keterangan_waktu'] . ' Pukul ' . $getData[1]['mulai'] . ' s.d ' . $getData[1]['selesai'] ?></p>
-
-                                <div class="ustazah">
-
-                                    <p class="lh-1"><?= $getData[1]['nama_penceramah'] ?></p>
-
-                                </div>
-
-                            </div>
-
-                            <div class="selasa1">
-
-                                <h3><?= $getData[2]['nama_kajian'] ?></h3>
-
-                                <p class="lh-1"><?= $getData[2]['keterangan_waktu'] . ' Pukul ' . $getData[2]['mulai'] . ' s.d ' . $getData[2]['selesai'] ?></p>
-
-                                <div class="ustazah">
-
-                                    <p class="lh-1"><?= $getData[2]['nama_penceramah'] ?></p>
-
-                                </div>
-
-                            </div>
-
                         </div>
+                        <div class="qris">
+                            <img src="<?= base_url() ?>/assets/qris/<?= $kg['foto_qris'] ?>" class=" thumbnail rounded " style="width:250px !important; height: 250px !important;">
+                        </div>
+
                     </div>
-                <?php elseif ($count == 4) : ?>
-                    <div class="swiper-slide">
-                        <div class="background">
-                            <img src="<?= base_url() ?>assets/background/<?= $getData[0]['background'] ?>" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="col-4 judulkegiatan mt-3 ps-3 position-absolute top-0 start-0">
+                </div>
 
-                            <div class="ahad1">
-
-                                <h3><?= $getData[0]['nama_kajian'] ?></h3>
-
-                                <p class="lh-1"><?= $getData[0]['keterangan_waktu'] . ' Pukul ' . $getData[0]['mulai'] . ' s.d ' . $getData[0]['selesai'] ?></p>4
-                                <div class="ustazah">
-
-                                    <p class="lh-1"><?= $getData[0]['nama_kajian'] ?></p>
-
-                                </div>
-
-                            </div>
-
-                            <div class="ahad2">
-                                <h3><?= $getData[1]['nama_kajian'] ?></h3>
-
-                                <p class="lh-1"><?= $getData[1]['keterangan_waktu'] . ' Pukul ' . $getData[1]['mulai'] . ' s.d ' . $getData[1]['selesai'] ?></p>4
-                                <div class="ustazah">
-
-                                    <p class="lh-1"><?= $getData[1]['nama_kajian'] ?></p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-4 mt-3 position-absolute top-0 start-50 translate-middle-x">
-
-                            <h1 class="text-center lh-lg" style="color:white; font-size:45pt;"><?= $key['hari'] ?></h1>
-                            <swiper-container class="mySwiper " navigation="false" space-between="30" centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
-                                <?php if ($getData[0]['foto'] != 'default.png') { ?>
-                                    <swiper-slide>
-                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[0]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                    </swiper-slide>
-                                <?php } ?>
-                                <?php if ($getData[1]['foto'] != 'default.png') { ?>
-                                    <swiper-slide>
-                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[1]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                    </swiper-slide>
-                                <?php } ?>
-                                <?php if ($getData[2]['foto'] != 'default.png') { ?>
-                                    <swiper-slide>
-                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[2]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                    </swiper-slide>
-                                <?php } ?>
-                                <?php if ($getData[3]['foto'] != 'default.png') { ?>
-                                    <swiper-slide>
-                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[3]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                    </swiper-slide>
-                                <?php } ?>
-                            </swiper-container>
-
-                        </div>
-
-                        <div class="col-4 judulkegiatan mt-3 ps-3 position-absolute top-0 end-0">
-
-                            <div class="ahad1">
-                                <h3><?= $getData[2]['nama_kajian'] ?></h3>
-
-                                <p class="lh-1"><?= $getData[2]['keterangan_waktu'] . ' Pukul ' . $getData[2]['mulai'] . ' s.d ' . $getData[2]['selesai'] ?></p>4
-                                <div class="ustazah">
-
-                                    <p class="lh-1"><?= $getData[2]['nama_kajian'] ?></p>
-
-                                </div>
-
-                            </div>
-
-                            <div class="ahad2">
-                                <h3><?= $getData[3]['nama_kajian'] ?></h3>
-
-                                <p class="lh-1"><?= $getData[3]['keterangan_waktu'] . ' Pukul ' . $getData[3]['mulai'] . ' s.d ' . $getData[3]['selesai'] ?></p>4
-                                <div class="ustazah">
-
-                                    <p class="lh-1"><?= $getData[3]['nama_kajian'] ?></p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                <?php elseif ($count == 5) : ?>
-                    <div class="swiper-slide">
-                        <div class="background">
-                            <img src="<?= base_url() ?>assets/background/<?= $getData[0]['background'] ?>" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="col-4 judulkegiatan mt-3 ps-3 position-absolute top-0 start-0">
-
-                            <div class="ahad1">
-
-                                <h3><?= $getData[0]['nama_kajian'] ?></h3>
-
-                                <p class="lh-1"><?= $getData[0]['keterangan_waktu'] . ' Pukul ' . $getData[0]['mulai'] . ' s.d ' . $getData[0]['selesai'] ?></p>4
-                                <div class="ustazah">
-
-                                    <p class="lh-1"><?= $getData[0]['nama_kajian'] ?></p>
-
-                                </div>
-
-                            </div>
-
-                            <div class="ahad2">
-                                <h3><?= $getData[1]['nama_kajian'] ?></h3>
-
-                                <p class="lh-1"><?= $getData[1]['keterangan_waktu'] . ' Pukul ' . $getData[1]['mulai'] . ' s.d ' . $getData[1]['selesai'] ?></p>4
-                                <div class="ustazah">
-
-                                    <p class="lh-1"><?= $getData[1]['nama_kajian'] ?></p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-4 mt-3 position-absolute top-0 start-50 translate-middle-x">
-
-                            <h1 class="text-center lh-lg" style="color:white; font-size:45pt;"><?= $key['hari'] ?></h1>
-                            <swiper-container class="mySwiper " navigation="false" space-between="30" centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
-                                <?php if ($getData[0]['foto'] != 'default.png') { ?>
-                                    <swiper-slide>
-                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[0]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                    </swiper-slide>
-                                <?php } ?>
-                                <?php if ($getData[1]['foto'] != 'default.png') { ?>
-                                    <swiper-slide>
-                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[1]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                    </swiper-slide>
-                                <?php } ?>
-                                <?php if ($getData[2]['foto'] != 'default.png') { ?>
-                                    <swiper-slide>
-                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[2]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                    </swiper-slide>
-                                <?php } ?>
-                                <?php if ($getData[3]['foto'] != 'default.png') { ?>
-                                    <swiper-slide>
-                                        <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[3]['foto'] ?>" class=" thumbnail rounded " alt="...">
-                                    </swiper-slide>
-                                <?php } ?>
-                            </swiper-container>
-
-                        </div>
-
-                        <div class="col-4 judulkegiatan mt-3 ps-3 position-absolute top-0 end-0">
-
-                            <div class="ahad1">
-                                <h3><?= $getData[2]['nama_kajian'] ?></h3>
-
-                                <p class="lh-1"><?= $getData[2]['keterangan_waktu'] . ' Pukul ' . $getData[2]['mulai'] . ' s.d ' . $getData[2]['selesai'] ?></p>4
-                                <div class="ustazah">
-
-                                    <p class="lh-1"><?= $getData[2]['nama_kajian'] ?></p>
-
-                                </div>
-
-                            </div>
-
-                            <div class="ahad2">
-                                <h3><?= $getData[3]['nama_kajian'] ?></h3>
-
-                                <p class="lh-1"><?= $getData[3]['keterangan_waktu'] . ' Pukul ' . $getData[3]['mulai'] . ' s.d ' . $getData[3]['selesai'] ?></p>4
-                                <div class="ustazah">
-
-                                    <p class="lh-1"><?= $getData[3]['nama_kajian'] ?></p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                <?php else : ?>
-                    <div class="swiper-slide">
-                        <div class="background">
-                            <img src="<?= base_url() ?>assets/background/bg_ramadhan2.jpg" class="d-block w-100" alt="...">
-                        </div>
-
-                        <!-- <div class="col-6 kotakthumb position-absolute top-50 end-0 translate-middle-y">
-                            <img src="<?= base_url() ?>assets/foto_penceramah/<?= $getData[0]['foto'] ?>" class=" thumbnail rounded float-end me-auto" alt="...">
-                        </div> -->
-
-                        <div class="col-6 d-flex judulkegiatan judulkegiatan1 position-absolute top-50 start-0 translate-middle">
-
-                            <div class="kegiatan1">
-
-                                <h1><?= $key['hari'] ?></h1>
-
-                                <h3>Belum ada jadwal pengajian</h3>
-
-                            </div>
-
-                        </div>
-                    </div>
-                <?php endif; ?>
             <?php endforeach; ?>
-
             <!-- Kegiatan Asmaf Santunan Anak Yatim -->
-            <div class="swiper-slide">
+            <!-- <div class="swiper-slide">
                 <div class="background">
                     <img src="<?= base_url() ?>assets/img/bg_ramadhan.jpg" class="d-block w-100" alt="...">
                 </div>
@@ -448,16 +129,16 @@
 
                     <div class="kegiatan1">
 
-                        <h3 class="lh-1"  style="color: #fff; font-family:'Poppins'">KEGIATAN ASMAF SANTUNAN ANAK YATIM</h3>
+                        <h3 class="lh-1" style="color: #fff; font-family:'Poppins'">KEGIATAN ASMAF SANTUNAN ANAK YATIM</h3>
 
-                        <h4 class="lh-1"  style="color: #fff; font-family:'Poppins'">Santunan kepada 130 Anak Yatim</h4>
+                        <h4 class="lh-1" style="color: #fff; font-family:'Poppins'">Santunan kepada 130 Anak Yatim</h4>
 
                     </div>
 
                     <div class="kegiatanrutin2">
 
                         <span>Bank Syariah Indonesia</span>
-                        <span class="d-block">An. Masjid	Al	Furqon</span>
+                        <span class="d-block">An. Masjid Al Furqon</span>
 
                         <div class="norek">
 
@@ -470,9 +151,9 @@
                     </div>
 
                 </div>
-            </div>
+            </div> -->
             <!-- Wakaf Pembagunan Area Parkir dan Kelas -->
-            <div class="swiper-slide">
+            <!-- <div class="swiper-slide">
                 <div class="background">
 
                     <img src="<?= base_url() ?>assets/img/bg_ramadhan2.jpg" class="d-block w-100" alt="...">
@@ -501,7 +182,7 @@
                 <div class="col-6 judulkegiatan position-absolute top-0 start-0">
                     <div class="kegiatan1">
 
-                        <h3  style="color: #fff; font-family:'Poppins';">WAKAF PEMBANGUNAN AREA PARKIR DAN KELAS</h3>
+                        <h3 style="color: #fff; font-family:'Poppins';">WAKAF PEMBANGUNAN AREA PARKIR DAN KELAS</h3>
 
                         <h4 style="color: #fff; font-family:'Poppins';">Dana yang dibutuhkan untuk pembangunan area parkir motor dan kelas sebesar <strong>Rp 815 juta</strong>.
 
@@ -512,7 +193,7 @@
                     <div class="kegiatanrutin2">
 
                         <span>Bank Syariah Indonesia</span>
-                        <span class="d-block">An. Masjid	Al	Furqon</span>
+                        <span class="d-block">An. Masjid Al Furqon</span>
 
                         <div class="norek">
 
@@ -528,10 +209,10 @@
 
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Zakat -->
-            <div class="swiper-slide">
+            <!-- <div class="swiper-slide">
                 <div class="background">
 
                     <img src="<?= base_url() ?>assets/img/bg_ramadhan2.jpg" class="d-block w-100" alt="...">
@@ -563,10 +244,7 @@
                 <div class="col-6 judulkegiatan position-absolute top-0 start-0">
                     <div class="kegiatan1">
 
-                        <h3  style="color: #fff; font-family:'Poppins';">Penyerahan	Zakat	1443	H</h3>
-
-                        <!-- <h4 style="color: #fff; font-family:'Poppins';">Dana yang dibutuhkan untuk pembangunan area parkir motor dan kelas sebesar <strong>Rp 815 juta</strong>. -->
-
+                        <h3 style="color: #fff; font-family:'Poppins';">Penyerahan Zakat 1443 H</h3>
                         </h4>
 
                     </div>
@@ -574,7 +252,7 @@
                     <div class="kegiatanrutin2">
 
                         <span>Bank Syariah Indonesia</span>
-                        <span class="d-block">An. Masjid	Al	Furqon</span>
+                        <span class="d-block">An. Masjid Al Furqon</span>
 
                         <div class="norek">
 
@@ -590,10 +268,10 @@
 
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Infaq Sodaqoh -->
-            <div class="swiper-slide">
+            <!-- <div class="swiper-slide">
                 <div class="background">
 
                     <img src="<?= base_url() ?>assets/img/bg_ramadhan2.jpg" class="d-block w-100" alt="...">
@@ -613,19 +291,17 @@
                 <div class="col-6 judulkegiatan kotakthumb2 position-absolute top-50 start-0 translate-middle-y ">
                     <div class="kegiatan1">
 
-                        <!-- <h3  style="color: #fff; font-family:'Poppins';">Penyerahan	Zakat	1443	H</h3> -->
-
                         <h4 style="color: #fff; font-family:'Poppins Semibold';">
-                        Masjid	Al	Furqon	menerima	infaq,	sodaqoh	untuk	operasional	kegiatan	sehari-hari.
-                        Infaq	dan	Sodaqoh	bisa	di	kirim	ke	rekening	sbb	:
+                            Masjid Al Furqon menerima infaq, sodaqoh untuk operasional kegiatan sehari-hari.
+                            Infaq dan Sodaqoh bisa di kirim ke rekening sbb :
                         </h4>
 
                     </div>
 
                     <div class="kegiatanrutin2">
 
-                        <span >Bank Syariah Indonesia</span>
-                        <span class="d-block">An. Masjid	Al	Furqon</span>
+                        <span>Bank Syariah Indonesia</span>
+                        <span class="d-block">An. Masjid Al Furqon</span>
 
                         <div class="norek">
 
@@ -635,9 +311,9 @@
 
                     </div>
 
-                    
+
                 </div>
-            </div>
+            </div> -->
 
             <!-- Donor Darah -->
             <!-- <div class="swiper-slide">
@@ -770,7 +446,7 @@
             // Optional parameters
             // direction: 'vertical',
             autoplay: {
-                delay: 50000,
+                delay: 10000,
                 disableOnInteraction: false,
             },
             loop: true,

@@ -1,8 +1,8 @@
 <style>
-img {
-  width: 200px;
-  height: 200px;
-}
+    img {
+        width: 200px;
+        height: 200px;
+    }
 </style>
 
 <div class="page-wrapper">
@@ -40,7 +40,6 @@ img {
                     <tr class="table-primary">
                         <th scope="col" class="table-primary">No</th>
                         <th scope="col">Nama Kegiatan</th>
-                        <th scope="col">Foto Kegiatan</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -50,9 +49,9 @@ img {
                         <tr>
                             <th scope="row"><?= $i ?></th>
                             <td><?= $key['judul'] ?></td>
-                            <td><img src="<?= base_url('assets/foto_kegiatan/') ?><?= $key['foto_kegiatan'] ?>" alt="foto" width="100px"></td>
                             <td>
-                                <a href="<?= base_url('Setkegiatan/hapus/') ?><?= $key['id_setkegiatan'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ?')">Hapus</a>
+                                <a href="<?= base_url('Setkegiatan/hapus/') ?><?= $key['id_kegiatan'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ?')">Hapus</a>
+                                <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success btn-sm">Foto kegiatan</button>
                             </td>
                         </tr>
                         <?php $i++; ?>
@@ -73,36 +72,36 @@ img {
                 <div class="modal-body">
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
-                        <?php
-                                $getKegiatanRutin = $this->db->get('tbl_kegiatan')->result_array();
+                            <?php
+                            $getKegiatanRutin = $this->db->get('tbl_kegiatan')->result_array();
                             ?>
 
                             <label for="id_kegiatan" class="form-label">Nama Kegiatan</label>
                             <select class="form-select form-control" aria-label="" name="id_kegiatan">
-                                    <option selected disabled value="0" readonly>Pilih Kegiatan</option>
-                                    <?php
-                                    foreach ($getKegiatanRutin as $kg) :  ?>
-                                        <option value="<?= $kg['id_kegiatan']; ?>"><?= $kg['judul']; ?></option>
-                                    <?php endforeach ?>
-                                </select>
+                                <option selected disabled value="0" readonly>Pilih Kegiatan</option>
+                                <?php
+                                foreach ($getKegiatanRutin as $kg) :  ?>
+                                    <option value="<?= $kg['id_kegiatan']; ?>"><?= $kg['judul']; ?></option>
+                                <?php endforeach ?>
+                            </select>
                         </div>
                         <div class="mb-3">
 
                             <?php
-                                $getGambarKegiatan = $this->db->get('tbl_foto_kegiatan')->result_array();
+                            $getGambarKegiatan = $this->db->get('tbl_foto_kegiatan')->result_array();
                             ?>
 
                             <label for="foto" class="form-label">Foto Kegiatan</label>
 
                             <label for="id_fotokegiatan">
                                 <div class="row">
-                                <?php foreach($getGambarKegiatan as $gk) : ?>
+                                    <?php foreach ($getGambarKegiatan as $gk) : ?>
                                         <div class="col-md-6" style="margin-bottom: 15px;">
-                                            <input type="checkbox" id="id_fotokegiatan" name="id_fotokegiatan[]" value="<?= $gk['id_fotokegiatan']?>" />
-                                            <img src="<?= base_url('assets/foto_kegiatan/')?><?= $gk['foto_kegiatan']?>">
+                                            <input type="checkbox" id="id_fotokegiatan" name="id_fotokegiatan[]" value="<?= $gk['id_fotokegiatan'] ?>" />
+                                            <img src="<?= base_url('assets/foto_kegiatan/') ?><?= $gk['foto_kegiatan'] ?>">
                                         </div>
-                                        <?php endforeach?>
-                                    </div>
+                                    <?php endforeach ?>
+                                </div>
                             </label>
                         </div>
                 </div>
@@ -116,7 +115,7 @@ img {
     </div>
 
     <script type="text/javascript">
-         $(document).ready(function(){
-             $('#tableSK').DataTable();
-         });
+        $(document).ready(function() {
+            $('#tableSK').DataTable();
+        });
     </script>

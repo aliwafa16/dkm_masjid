@@ -13,7 +13,8 @@ class Fotokegiatan extends CI_Controller
 
     public function index()
     {
-        $getData = $this->db->get('tbl_foto_kegiatan')->result_array();
+        $getData['foto'] = $this->db->select('*')->from('tbl_foto_kegiatan')->join('tbl_kegiatan', 'tbl_kegiatan.id_kegiatan=tbl_foto_kegiatan.kegiatan_id')->get()->result_array();
+        $getData['kegiatan'] = $this->db->get('tbl_kegiatan')->result_array();
         $data = [
             'title' => 'Foto Kegiatan',
             'data' => $getData
@@ -21,7 +22,8 @@ class Fotokegiatan extends CI_Controller
 
         if (isset($_POST['submit'])) {
             $data = [
-                'foto_kegiatan' => $this->_foto()
+                'foto_kegiatan' => $this->_foto(),
+                'kegiatan_id' => $this->input->post('kegiatan_id')
             ];
 
             $this->db->insert('tbl_foto_kegiatan', $data);
@@ -57,8 +59,8 @@ class Fotokegiatan extends CI_Controller
 
         $getData = $this->db->get_where('tbl_foto_kegiatan', ['id_fotokegiatan' => $id])->row_array();
 
-        if($getData['foto_kegiatan'] == null){
-        }else{
+        if ($getData['foto_kegiatan'] == null) {
+        } else {
             unlink(FCPATH . 'assets/foto_kegiatan/' . $getData['foto_kegiatan']);
         }
 

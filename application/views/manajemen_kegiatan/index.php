@@ -113,13 +113,10 @@
                         </div>
 
                         <div class="mb-3">
-
                             <?php
                             $getQris = $this->db->get('tbl_qris')->result_array();
                             ?>
-
-                            <label for="foto" class="form-label">Foto Kegiatan</label>
-
+                            <label for="foto" class="form-label">Qris</label>
                             <label for="id_qris">
                                 <div class="row">
                                     <?php foreach ($getQris as $gk) : ?>

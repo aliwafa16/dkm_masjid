@@ -30,10 +30,12 @@ class Kegiatan extends CI_Controller
 
 		$data = [
 			'hari' => $this->db->get('tbl_hari')->result_array(),
+			'kegiatan' => $this->db->select('*')->from('tbl_kegiatan')->join('tbl_rekening', 'tbl_rekening.id_rekening=tbl_kegiatan.id_rekening')->join('tbl_qris', 'tbl_qris.id_qris=tbl_kegiatan.id_qris')->get()->result_array(),
 			'tanggal' => $tanggal,
 			'sholat' => $datas['jadwal']['data'],
 			'rekening' => $rekening
 		];
+
 
 		$this->load->view('kegiatan/kegiatan_masjid', $data);
 	}

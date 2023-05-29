@@ -33,14 +33,16 @@
                     <tr class="table-primary">
                         <th scope="col" class="table-primary">No</th>
                         <th scope="col">Foto Kegiatan</th>
+                        <th scope="col">Nama Kegiatan</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($data as $key) : ?>
+                    <?php foreach ($data['foto'] as $key) : ?>
                         <tr>
                             <th scope="row"><?= $i ?></th>
+                            <td scope="row"><?= $key['judul'] ?></td>
                             <td><img src="<?= base_url('assets/foto_kegiatan/') ?><?= $key['foto_kegiatan'] ?>" width="250px"></td>
                             <td>
                                 <a href="<?= base_url('Fotokegiatan/hapus/') ?><?= $key['id_fotokegiatan'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ?')">Hapus</a>
@@ -62,6 +64,11 @@
                 </div>
                 <div class="modal-body">
                     <form action="" method="post" enctype="multipart/form-data">
+                        <select name="kegiatan_id" id="kegiatan_id" class="form-control">
+                            <?php foreach ($data['kegiatan'] as $key) : ?>
+                                <option value="<?= $key['id_kegiatan'] ?>"><?= $key['judul'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
                         <div class="mb-3">
                             <label for="foto_kegiatan" class="form-label">Foto Kegiatan</label>
                             <input class="form-control" type="file" id="foto_kegiatan" name="foto_kegiatan" required>
@@ -77,7 +84,7 @@
     </div>
 
     <script type="text/javascript">
-         $(document).ready(function(){
-             $('#tableFK').DataTable();
-         });
+        $(document).ready(function() {
+            $('#tableFK').DataTable();
+        });
     </script>
