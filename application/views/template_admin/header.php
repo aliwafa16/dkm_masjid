@@ -131,6 +131,9 @@
                                 <div class="dropdown-menu">
                                     <div class="dropdown-menu-columns">
                                         <div class="dropdown-menu-column">
+                                            <a class="dropdown-item <?= $title == 'Manajemen Tampilan Awal' ? 'active' : '' ?>" href="<?= base_url('Manajemenhalawal') ?>">
+                                                Manajemen Tampilan Awal
+                                            </a>
                                             <a class="dropdown-item <?= $title == 'Hari' ? 'active' : '' ?>" href="<?= base_url('Hari') ?>">
                                                 Hari
                                             </a>
