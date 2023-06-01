@@ -158,6 +158,9 @@
                                             <a class="dropdown-item <?= $title == 'Qris' ? 'active' : '' ?>" href="<?= base_url('Qris') ?>">
                                                 Qris
                                             </a>
+                                             <a class="dropdown-item <?= $title == 'Pengumuman' ? 'active' : '' ?>" href="<?= base_url('Pengumuman') ?>">
+                                                Pengumuman
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
