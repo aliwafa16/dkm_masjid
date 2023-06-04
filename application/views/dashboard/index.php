@@ -51,13 +51,21 @@
                                 <ul class="list-group">
                                     <?php if (count($getData) > 0) :  ?>
                                         <?php foreach ($getData as $keyy) : ?>
-                                            <a href="<?= base_url('Dashboard/hapus/') ?><?= $keyy['id_daily'] ?>" onclick="return confirm('Yakin ingi menghapus data  ?')" class="list-group-item list-group-item-action active mt-2" aria-current="true">
-                                                <div class="d-flex w-100 justify-content-between">
-                                                    <h5 class="mb-1"><?= $keyy['nama_kajian'] ?></h5>
-                                                    <small><?= $keyy['mulai'] . ' s.d ' . $keyy['selesai'] ?></small>
+                                            <div class="row">
+                                                <div class="col-lg-9">
+                                                    <a href="" class="list-group-item list-group-item-action active mt-2" aria-current="true">
+                                                        <div class="d-flex w-100 justify-content-between">
+                                                            <h5 class="mb-1"><?= $keyy['nama_kajian'] ?></h5>
+                                                        </div>
+                                                        <small><?= $keyy['mulai'] . ' s.d ' . $keyy['selesai'] ?></small>
+                                                        <p class="mb-1"><?= $keyy['nama_penceramah'] ?></p>
+                                                    </a>
                                                 </div>
-                                                <p class="mb-1"><?= $keyy['nama_penceramah'] ?></p>
-                                            </a>
+                                                <div class="col-lg-3" style="margin-top:10px;">
+                                                    <button class="mb-1 btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal<?= $keyy['id_daily'] ?>" type="button" style="width:55px;">Edit</button>
+                                                    <a href="<?= base_url('Dashboard/hapus/') ?><?= $keyy['id_daily'] ?>" onclick="return confirm('Yakin ingi menghapus data  ?')" class="mb-1 btn btn-danger btn-sm" style="width:55px;">Hapus</a>
+                                                </div>
+                                            </div>
 
                                             </li>
                                         <?php endforeach; ?>
@@ -75,6 +83,60 @@
         </div>
     </div>
 
+    <?php foreach ($data as $key) : ?>
+        <div class="modal fade" id="editModal<?= $key['id_daily'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit data</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="<?= base_url('Dashboard/edit/') ?><?= $key['id_daily'] ?>" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="nama_kajian" class="form-label">Hari</label>
+                            <select class="form-select" aria-label="Default select example" name="id_hari">
+                                    <option value="<?= $key['id_hari'] ?>"><?= $key['hari'] ?></option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nama_kajian" class="form-label">Nama Kajian</label>
+                            <select class="form-select" aria-label="Default select example" name="id_kajian">
+                                <?php foreach ($kajian as $key) : ?>
+                                    <option value="<?= $key['id_kajian'] ?>"><?= $key['nama_kajian'] ?> (<?= $key['mulai'] . '-' . $key['selesai'] ?>)</option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nama_kajian" class="form-label">Penceramah</label>
+                            <select class="form-select" aria-label="Default select example" name="id_penceramah">
+                                <?php foreach ($penceramah as $key) : ?>
+                                    <option value="<?= $key['id_penceramah'] ?>"><?= $key['nama_penceramah'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nama_kajian" class="form-label">Background</label>
+                            <?php foreach ($background as $key) : ?>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="flexRadioDefault1" value="<?= $key['id_background'] ?>" name="background[]">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        <img src="<?= base_url('assets/background/') ?><?= $key['background'] ?>" alt="image_background" width="100px">
+                                    </label>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                        <small style="color:red; font-size:11px;">*background yang dipilih harus sama dengan kajian lain pada hari ini!</small>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
