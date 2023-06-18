@@ -18,7 +18,6 @@ class Login extends CI_Controller
         $username = $this->input->post('username');
         $password = $this->input->post('password');
 
-
         $getData = $this->db->get_where('tbl_user', ['username' => $username])->row_array();
 
         if ($getData) {
@@ -26,6 +25,7 @@ class Login extends CI_Controller
                 $data_session = [
                     'username' => $getData['username'],
                     'email' => $getData['email'],
+                    'role' => $getData['role'],
                     'is_login' => true
                 ];
                 $this->session->set_userdata($data_session);
