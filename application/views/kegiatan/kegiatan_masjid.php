@@ -11,7 +11,7 @@
     <title>DKM MASJID AL FURQON</title>
 
     <!-- add icon link -->
-    <link rel="icon" href="<?= base_url() ?>assets/img/kegiatanmasjid/Logo Al-Furqon-01.png" type= "image/x-icon">
+    <link rel="icon" href="<?= base_url() ?>assets/halaman_awal/<?= $halaman_awal['logo'] ?>" type= "image/x-icon">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
@@ -45,11 +45,11 @@
             <!-- Pembuka -->
             <div class="swiper-slide">
                 <div class="background">
-                    <img src="<?= base_url() ?>assets/img/kegiatanmasjid/alfurqon.jpg" class="d-block w-100" alt="...">
+                    <img src="<?= base_url() ?>assets/halaman_awal/<?= $halaman_awal['background'] ?>" class="d-block w-100" alt="...">
                 </div>
                 <div class="col-12 pembuka position-absolute top-50 start-50 translate-middle">
                     <div class="judulpembuka text-center">
-                        <img src="<?= base_url() ?>assets/img/kegiatanmasjid/rounded_logo.png" class="mb-2" alt="" width="100">
+                        <img src="<?= base_url() ?>assets/halaman_awal/<?= $halaman_awal['logo'] ?>" class="mb-2" alt="" width="100">
                         <h1>PROGRAM KEGIATAN PEKANAN <br />MASJID AL FURQON</h1>
                     </div>
                 </div>
@@ -417,10 +417,16 @@
         <div class="areamarq position-absolute top-100 start-50 translate-middle">
             <marquee direction="left" style="margin-left:10vw !important">REKENING AL FURQON: <?php foreach ($rekening as $key) {
                                                                                                     echo $key['nama_bank'] . ' no.rek ' . $key['no_rek'] . ' ' . $key['keterangan'] . ' | ';
-                                                                                                } ?> </marquee>
+                                                                                                } ?>
+
+                <?php foreach ($pengumuman as $key) {
+                    echo $key['text'] . ' | ';
+                } ?>
+
+            </marquee>
         </div>
         <div class="position-absolute bottom-0 start-0" style="margin-left:8vw !important; z-index: 9999 !important;">
-            <img src="<?= base_url() ?>assets/img/kegiatanmasjid/rounded_logo.png" class="mb-2" alt="" width="100">
+            <img src="<?= base_url() ?>assets/halaman_awal/<?= $halaman_awal['logo'] ?>" class="mb-2" alt="" width="100">
         </div>
         <!-- If we need pagination -->
         <!-- <div class="swiper-pagination"></div> -->

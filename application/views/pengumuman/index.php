@@ -70,7 +70,7 @@
                                 <label for="text" class="form-label">Deskripsi Pengumuman</label>
                                 <input type="text" class="form-control" id="text" name="text" value="<?= $key['text'] ?>">
                             </div>
-                            <?php if($key['status'] == 'Aktif'){?>
+                            <?php if ($key['status'] == 'Aktif') { ?>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="status" id="status1" value="Aktif" checked>
                                     <label class="form-check-label" for="status1">
@@ -83,7 +83,7 @@
                                         Tidak Aktif
                                     </label>
                                 </div>
-                            <?php }elseif($key['status'] == 'Tidak Aktif'){?>
+                            <?php } elseif ($key['status'] == 'Tidak Aktif') { ?>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="status" id="status1" value="Aktif">
                                     <label class="form-check-label" for="status1">
@@ -96,7 +96,7 @@
                                         Tidak Aktif
                                     </label>
                                 </div>
-                            <?php }?>
+                            <?php } ?>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -128,10 +128,10 @@
                             </label>
                         </div>
                         <div class="form-check">
-                        <input class="form-check-input" type="radio" name="status" id="status2" value="Tidak Aktif">
-                        <label class="form-check-label" for="status2">
-                            Tidak Aktif
-                        </label>
+                            <input class="form-check-input" type="radio" name="status" id="status2" value="Tidak Aktif">
+                            <label class="form-check-label" for="status2">
+                                Tidak Aktif
+                            </label>
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -144,7 +144,7 @@
     </div>
 
     <script type="text/javascript">
-         $(document).ready(function(){
-             $('#tblPengumuman').DataTable();
-         });
+        $(document).ready(function() {
+            $('#tblPengumuman').DataTable();
+        });
     </script>

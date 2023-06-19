@@ -35,6 +35,7 @@
                         <th scope="col">Logo</th>
                         <th scope="col">Background</th>
                         <th scope="col">Keterangan</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -46,6 +47,7 @@
                             <td><img src="<?= base_url('assets/halaman_awal/') ?><?= $key['logo'] ?>" alt="logo" width="100px"></td>
                             <td><img src="<?= base_url('assets/halaman_awal/') ?><?= $key['background'] ?>" alt="logo" width="100px"></td>
                             <td><?= $key['keterangan'] ?></td>
+                            <td><?= $key['status'] ?></td>
                             <td>
                                 <a href="<?= base_url('Manajemenhalawal/hapus/') ?><?= $key['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ?')">Hapus</a>
                                 <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal<?= $key['id'] ?>" type="button">Edit</button>
@@ -95,6 +97,33 @@
                                     </div>
                                 </div>
                             </div>
+                            <?php if ($key['status'] == 'Aktif') { ?>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="status" id="status1" value="Aktif" checked>
+                                    <label class="form-check-label" for="status1">
+                                        Aktif
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="status" id="status2" value="Tidak Aktif">
+                                    <label class="form-check-label" for="status2">
+                                        Tidak Aktif
+                                    </label>
+                                </div>
+                            <?php } elseif ($key['status'] == 'Tidak Aktif') { ?>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="status" id="status1" value="Aktif">
+                                    <label class="form-check-label" for="status1">
+                                        Aktif
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="status" id="status2" value="Tidak Aktif" checked>
+                                    <label class="form-check-label" for="status2">
+                                        Tidak Aktif
+                                    </label>
+                                </div>
+                            <?php } ?>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -128,6 +157,18 @@
                             <label for="background" class="form-label">Background</label>
                             <input class="form-control" type="file" id="background" name="background">
                         </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="status" id="status1" value="Aktif" checked>
+                            <label class="form-check-label" for="status1">
+                                Aktif
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="status" id="status2" value="Tidak Aktif">
+                            <label class="form-check-label" for="status2">
+                                Tidak Aktif
+                            </label>
+                        </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -137,9 +178,14 @@
             </div>
         </div>
     </div>
-
+    <script script>
+        window.onload = function() {
+            // CKEDITOR.replace('keterangan');
+            // CKEDITOR.replace('keterangan_edit');
+        };
+    </script>
     <script type="text/javascript">
-         $(document).ready(function(){
-             $('#tableHalAwal').DataTable();
-         });
+        $(document).ready(function() {
+            $('#tableHalAwal').DataTable();
+        });
     </script>
