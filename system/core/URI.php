@@ -49,7 +49,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/userguide3/libraries/uri.html
  */
-class CI_URI {
+#[\AllowDynamicProperties]
+class CI_URI{
 
 	/**
 	 * List of cached URI segments

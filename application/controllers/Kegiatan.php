@@ -26,9 +26,6 @@ class Kegiatan extends CI_Controller
 		$datas = json_decode($output, true);
 		$tanggal = $this->hari_ini() . ', ' . date('d') . ' ' . $this->bulan_ini() . ' ' . date('Y');
 
-		var_dump($tanggal);
-		die;
-
 		$rekening = $this->db->get('tbl_rekening')->result_array();
 
 		$pengumuman = $this->db->get_where('tbl_pengumuman', ['status' => 'Aktif'])->result_array();
